@@ -1,0 +1,74 @@
+version: "3.9"
+
+services:
+  # ───────────────────────────────────────────────
+  # 🧱 MONGO DATABASE
+  # ───────────────────────────────────────────────
+  mongo:
+    image: mongo:7
+    container_name: mongodb_pokedex
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+      MONGO_INITDB_DATABASE: pokedex
+    volumes:
+      - ./data/mongo/db:/data/db
+      - ./data/mongo/config:/data/configdb
+
+  # ───────────────────────────────────────────────
+  # 🧭 MONGO EXPRESS
+  # ───────────────────────────────────────────────
+  mongo-express:
+    image: mongo-express
+    container_name: mongo_express_pokedex
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongo
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_ENABLE_ADMIN: "true"
+      ME_CONFIG_MONGODB_AUTH_DATABASE: admin
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: admin123
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: admin123
+    depends_on:
+      - mongo
+
+  # ───────────────────────────────────────────────
+  # 🕸️ NEO4J DATABASE
+  # ───────────────────────────────────────────────
+  neo4j:
+    image: neo4j:5.20
+    container_name: neo4j_pokedex
+    restart: unless-stopped
+    ports:
+      - "7474:7474"  # Web UI
+      - "7687:7687"  # Bolt protocol
+    environment:
+      NEO4J_AUTH: neo4j/supersecure123
+      NEO4J_PLUGINS: '["apoc", "graph-data-science"]'
+      NEO4J_apoc_export_file_enabled: "true"
+      NEO4J_apoc_import_file_enabled: "true"
+      NEO4J_dbms_security_procedures_unrestricted: "apoc.*"
+      NEO4J_dbms_security_procedures_allowlist: "apoc.*"
+      NEO4J_dbms_memory_pagecache_size: 1G
+      NEO4J_dbms_memory_heap_initial__size: 512m
+      NEO4J_dbms_memory_heap_max__size: 2G
+    volumes:
+      - ./data/neo4j/data:/data
+      - ./data/graph:/import   # aquí están tus CSVs
+      - ./data/neo4j/logs:/logs
+    depends_on:
+      - mongo
+
+# ───────────────────────────────────────────────
+# 🗂️ Volúmenes globales declarados (opcional)
+# ───────────────────────────────────────────────
+volumes:
+  mongo_data:
+  neo4j_data:

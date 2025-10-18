@@ -1,0 +1,24 @@
+[project]
+name = "g-poke-t"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "arize-phoenix>=12.6.1",
+    "dlt>=1.17.1",
+    "fastembed>=0.7.3",
+    "neo4j>=6.0.2",
+    "openai>=2.4.0",
+    "pandas>=2.3.3",
+    "pymongo>=4.15.3",
+    "python-dotenv>=1.1.1",
+    "qdrant-client>=1.15.1",
+    "streamlit>=1.50.0",
+    "tqdm>=4.67.1",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.0.1",
+]
