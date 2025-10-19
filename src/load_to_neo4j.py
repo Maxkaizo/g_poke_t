@@ -69,6 +69,7 @@ def main():
         session.run("MATCH (n) DETACH DELETE n")
         session.run("CREATE CONSTRAINT unique_pokemon IF NOT EXISTS FOR (p:Pokemon) REQUIRE p.name IS UNIQUE")
         session.run("CREATE CONSTRAINT unique_type IF NOT EXISTS FOR (t:Type) REQUIRE t.name IS UNIQUE")
+        session.run("CREATE CONSTRAINT unique_ability IF NOT EXISTS FOR (a:Ability) REQUIRE a.name IS UNIQUE")
 
         # 2️⃣ Importar nodos Pokémon
         print("📦 Cargando Pokémon...")
@@ -129,13 +130,31 @@ def main():
         run_query(session, query)
         print("📊 Relaciones de tipo cargadas (verificar en Neo4j Browser con MATCH (:Type)-[]->(:Type))")
 
+        # 7️⃣ Relaciones de HABILIDADES
+        print("🔗 Creando relaciones CAN_HAVE (Pokémon → Ability)...")
+        load_csv(session, "abilities_edges.csv", """
+            LOAD CSV WITH HEADERS FROM '{file}' AS row
+            MATCH (p:Pokemon {{name: row.pokemon}})
+            MERGE (a:Ability {{name: row.ability}})
+            MERGE (p)-[r:CAN_HAVE]->(a)
+            SET r.hidden = toBoolean(row.is_hidden),
+                r.slot = CASE 
+                            WHEN row.slot IS NULL OR row.slot = '' THEN NULL 
+                            ELSE toInteger(row.slot)
+                        END;
+        """)
+        check_count(session, rel_type="CAN_HAVE")
+
         # 🧩 Validación final automática
         print("\n🧩 Validación final del grafo:")
+
         stats_queries = {
             "Pokémon": "MATCH (p:Pokemon) RETURN count(p) AS total;",
             "Tipos": "MATCH (t:Type) RETURN count(t) AS total;",
+            "Habilidades": "MATCH (a:Ability) RETURN count(a) AS total;",
             "HAS_TYPE": "MATCH ()-[r:HAS_TYPE]->() RETURN count(r) AS total;",
             "EVOLVES_TO": "MATCH ()-[r:EVOLVES_TO]->() RETURN count(r) AS total;",
+            "CAN_HAVE": "MATCH ()-[r:CAN_HAVE]->() RETURN count(r) AS total;",
             "Relaciones entre Tipos": "MATCH (:Type)-[r]->(:Type) RETURN count(r) AS total;"
         }
 
@@ -143,6 +162,38 @@ def main():
             result = session.run(q).single()
             print(f"📊 {name}: {result['total']}")
 
+        # 🔎 Verificaciones cruzadas
+        print("\n🔎 Verificaciones cruzadas:")
+        checks = {
+            "Pokémon sin tipo": """
+                MATCH (p:Pokemon)
+                WHERE NOT (p)-[:HAS_TYPE]->(:Type)
+                RETURN count(p) AS missing;
+            """,
+            "Pokémon sin habilidad": """
+                MATCH (p:Pokemon)
+                WHERE NOT (p)-[:CAN_HAVE]->(:Ability)
+                RETURN count(p) AS missing;
+            """,
+            "Tipos huérfanos": """
+                MATCH (t:Type)
+                WHERE NOT ()-[:HAS_TYPE]->(t)
+                RETURN count(t) AS missing;
+            """,
+            "Habilidades huérfanas": """
+                MATCH (a:Ability)
+                WHERE NOT ()-[:CAN_HAVE]->(a)
+                RETURN count(a) AS missing;
+            """
+        }
+
+        for label, q in checks.items():
+            result = session.run(q).single()
+            missing = result["missing"]
+            status = "✅ OK" if missing == 0 else f"⚠️ {missing} elementos sin relación"
+            print(f"   {label}: {status}")
+
+        # 🔍 Ejemplo de relaciones
         print("\n🔍 Ejemplo de relaciones:")
         sample_queries = {
             "HAS_TYPE": """
@@ -152,6 +203,10 @@ def main():
             "EVOLVES_TO": """
                 MATCH (p1:Pokemon)-[:EVOLVES_TO]->(p2:Pokemon)
                 RETURN p1.name AS From, p2.name AS To LIMIT 5;
+            """,
+            "CAN_HAVE": """
+                MATCH (p:Pokemon)-[r:CAN_HAVE]->(a:Ability)
+                RETURN p.name AS Pokemon, a.name AS Ability, r.hidden AS Hidden LIMIT 5;
             """
         }
 

@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "arize-phoenix>=12.6.1",
+    "bs4>=0.0.2",
     "dlt>=1.17.1",
     "fastembed>=0.7.3",
     "neo4j>=6.0.2",

@@ -183,6 +183,37 @@ def export_type_relations_edges():
     print(f"✅ type_relations_edges.csv → {len(df)} aristas")
     return df
 
+# ─────────────────────────────────────────────────────────────
+# 6) ARISTAS: HABILIDADES
+#    (Pokemon)-[:CAN_HAVE {hidden, slot}]->(Ability)
+#    Fuente: pokemon.abilities[].ability.name
+# ─────────────────────────────────────────────────────────────
+def export_abilities_edges():
+    print("🔗 Exportando aristas CAN_HAVE (habilidades)...")
+    cursor = db.pokemon.find({}, {"_id": 0, "name": 1, "abilities": 1})
+    rows = []
+
+    for doc in tqdm(cursor, desc="Procesando habilidades"):
+        pname = clean_str(doc.get("name"))
+        abilities = doc.get("abilities", [])
+        if not pname or not isinstance(abilities, list):
+            continue
+        for ab in abilities:
+            aname = (((ab or {}).get("ability") or {}).get("name"))
+            if aname:
+                rows.append({
+                    "pokemon": pname,
+                    "ability": str(aname).strip(),
+                    "is_hidden": ab.get("is_hidden", False),
+                    "slot": ab.get("slot")
+                })
+
+    df = pd.DataFrame(rows).drop_duplicates()
+    out_path = OUT_DIR / "abilities_edges.csv"
+    df.to_csv(out_path, index=False)
+    print(f"✅ abilities_edges.csv → {len(df)} aristas")
+    return df
+
 
 # ─────────────────────────────────────────────────────────────
 # MAIN
@@ -194,4 +225,5 @@ if __name__ == "__main__":
     export_has_type_edges()
     export_evolutions_edges()
     export_type_relations_edges()
+    export_abilities_edges()
     print(f"🏁 Listo. Archivos en: {OUT_DIR.resolve()}")
