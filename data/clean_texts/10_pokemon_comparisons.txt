@@ -1,0 +1,164 @@
+# Pokémon Game Mechanics Comparison Document
+
+## 1. Introduction
+
+This document provides a comprehensive analysis of Pokémon game mechanics, focusing on comparisons across different generations of the mainline series. The Pokémon franchise, developed by Game Freak and published by Nintendo and The Pokémon Company, has evolved significantly since its inception in 1996. Understanding the underlying game mechanics is crucial for both casual players and competitive strategists. This analysis will delve into core systems such as Pokémon types, stats, evolution methods, and battle mechanics, highlighting their development and changes over the generations.
+
+## 2. Core Game Mechanics
+
+### 2.1. Pokémon Types and Effectiveness
+
+Pokémon types are fundamental to the game's battle system, determining strengths, weaknesses, and immunities. Each Pokémon and move is assigned at least one type, influencing damage calculations. As of Generation IX, there are 19 types, with 18 regular types and the special Stellar type. The Dark and Steel types were introduced in Generation II, and the Fairy type in Generation VI [1].
+
+**Type Chart Overview:**
+The type chart dictates how effective a move of one type is against a Pokémon of another type. A 
+
+move can be super effective (dealing double damage), not very effective (dealing half damage), or have no effect (dealing no damage). For dual-type Pokémon, these multipliers are combined. For example, a move that is super effective against both of a Pokémon's types will deal four times the normal damage.
+
+**Generational Changes:**
+The type chart has undergone several changes throughout the generations. The introduction of the Dark and Steel types in Generation II brought significant balance changes, providing a counter to the previously dominant Psychic type. The Fairy type, introduced in Generation VI, was created to counter the powerful Dragon type. The following table summarizes the type effectiveness for Generations VI and later [1]:
+
+| Attacking Type | Defending Type | Multiplier |
+|---|---|---|
+| Normal | Rock, Steel | 0.5x |
+| Normal | Ghost | 0x |
+| Fire | Grass, Ice, Bug, Steel | 2x |
+| Fire | Fire, Water, Rock, Dragon | 0.5x |
+| Water | Fire, Ground, Rock | 2x |
+| Water | Water, Grass, Dragon | 0.5x |
+| Electric | Water, Flying | 2x |
+| Electric | Grass, Electric, Dragon | 0.5x |
+| Electric | Ground | 0x |
+| Grass | Water, Ground, Rock | 2x |
+| Grass | Fire, Grass, Poison, Flying, Bug, Dragon, Steel | 0.5x |
+| Ice | Grass, Ground, Flying, Dragon | 2x |
+| Ice | Fire, Water, Ice, Steel | 0.5x |
+| Fighting | Normal, Ice, Rock, Dark, Steel | 2x |
+| Fighting | Poison, Flying, Psychic, Bug, Fairy | 0.5x |
+| Fighting | Ghost | 0x |
+| Poison | Grass, Fairy | 2x |
+| Poison | Poison, Ground, Rock, Ghost | 0.5x |
+| Poison | Steel | 0x |
+| Ground | Fire, Electric, Poison, Rock, Steel | 2x |
+| Ground | Grass, Bug | 0.5x |
+| Ground | Flying | 0x |
+| Flying | Grass, Fighting, Bug | 2x |
+| Flying | Electric, Rock, Steel | 0.5x |
+| Psychic | Fighting, Poison | 2x |
+| Psychic | Psychic, Steel | 0.5x |
+| Psychic | Dark | 0x |
+| Bug | Grass, Psychic, Dark | 2x |
+| Bug | Fire, Fighting, Poison, Flying, Ghost, Steel, Fairy | 0.5x |
+| Rock | Fire, Ice, Flying, Bug | 2x |
+| Rock | Fighting, Ground, Steel | 0.5x |
+| Ghost | Psychic, Ghost | 2x |
+| Ghost | Dark | 0.5x |
+| Ghost | Normal | 0x |
+| Dragon | Dragon | 2x |
+| Dragon | Steel | 0.5x |
+| Dragon | Fairy | 0x |
+| Dark | Psychic, Ghost | 2x |
+| Dark | Fighting, Dark, Fairy | 0.5x |
+| Steel | Ice, Rock, Fairy | 2x |
+| Steel | Fire, Water, Electric, Steel | 0.5x |
+| Fairy | Fighting, Dragon, Dark | 2x |
+| Fairy | Fire, Poison, Steel | 0.5x |
+
+### References:
+[1] Bulbapedia. (2025). *Type*. Retrieved from https://bulbapedia.bulbagarden.net/wiki/Type
+
+
+
+## 2.2. Pokémon Stats
+
+Pokémon stats are numerical values that determine a Pokémon's performance in battle. There are six primary stats: HP (Hit Points), Attack, Defense, Special Attack, Special Defense, and Speed. These stats are influenced by several factors, including a Pokémon's species, level, Individual Values (IVs), Effort Values (EVs), and Nature [2].
+
+**Base Stats:**
+Each Pokémon species has a unique set of **base stats**, which are inherent values for HP, Attack, Defense, Special Attack, Special Defense, and Speed. These base stats largely determine a Pokémon's overall strength and role in battle. For example, a Pokémon with high base Attack and low base Special Attack is better suited for physical moves. These values vary significantly between species and are consistent across all Pokémon of the same species at the same level, before other modifiers are applied [2].
+
+**Individual Values (IVs):**
+**Individual Values (IVs)** are hidden, inherent stats that range from 0 to 31 for each of the six primary stats. They are randomly generated when a Pokémon is encountered or hatched and cannot be changed later in most games (with some exceptions in later generations, like Hyper Training). A Pokémon with 31 IVs in a given stat will have a higher final stat value than a Pokémon with 0 IVs in that same stat, at the same level. IVs contribute significantly to a Pokémon's potential, especially in competitive play [2].
+
+**Effort Values (EVs):**
+**Effort Values (EVs)** are points gained by a Pokémon through battling and training, which contribute to its stats. Each Pokémon defeated in battle awards a specific number of EVs (typically 1, 2, or 3) in one or more stats. A Pokémon can gain a maximum of 510 EVs in total, with a cap of 252 EVs in any single stat. These EVs directly boost a Pokémon's stats, allowing trainers to customize their Pokémon's strengths. For instance, a trainer might invest 252 EVs into Attack and 252 into Speed to maximize an offensive Pokémon's potential. EVs are a crucial component of competitive Pokémon training [2].
+
+**Natures:**
+**Natures** are personality traits that influence a Pokémon's stats. Each Nature typically boosts one stat by 10% and lowers another stat by 10%. For example, an Adamant Nature boosts Attack and lowers Special Attack, while a Modest Nature boosts Special Attack and lowers Attack. Some Natures are neutral and do not affect any stats. Natures are determined when a Pokémon is encountered or hatched and can be changed in later generations using items like Mintss [2].
+
+**Stat Calculation (Generation III onward):**
+The formula for calculating a Pokémon's stats from Generation III onward is as follows:
+
+*   **HP:** `HP = floor(((2 * Base + IV + floor(EV/4)) * Level / 100) + Level + 10)`
+*   **Other Stats:** `Stat = floor((((2 * Base + IV + floor(EV/4)) * Level / 100) + 5) * Nature)`
+
+Where:
+*   `Base` is the Pokémon's base stat value.
+*   `IV` is the Individual Value (0-31).
+*   `EV` is the Effort Value (0-252).
+*   `Level` is the Pokémon's current level (1-100).
+*   `Nature` is the Nature modifier (1.1 for boosted, 0.9 for lowered, 1.0 for neutral) [2].
+
+### References:
+[1] Bulbapedia. (2025). *Type*. Retrieved from https://bulbapedia.bulbagarden.net/wiki/Type
+[2] Bulbapedia. (2025). *Stat*. Retrieved from https://bulbapedia.bulbagarden.net/wiki/Stat
+
+
+## 2.3. Evolution Methods
+
+Evolution is a fundamental mechanic in the Pokémon franchise, allowing creatures to transform into more powerful forms. Over the generations, the methods by which Pokémon evolve have become increasingly diverse, moving beyond simple level-up requirements to incorporate a variety of conditions and items [3].
+
+**Traditional Evolution Methods:**
+The most common and long-standing method of evolution is by **leveling up**, where a Pokémon evolves upon reaching a specific experience threshold. This can sometimes be combined with other conditions, such as achieving a certain level of **friendship** or **affection** (introduced in Generation II), knowing a particular move, or being in a specific in-game location (introduced in Generation IV) when the level-up occurs. For instance, a Pokémon like Togepi evolves into Togetic with high friendship, while a Nosepass evolves into Probopass when leveled up in a special magnetic field [3].
+
+Another significant category involves **item-based evolution**. This typically requires exposing a Pokémon to a specific Evolution stone (e.g., Fire Stone, Water Stone) or other unique items, which are consumed upon use. These methods allow for evolution outside of battle and often result in Pokémon learning fewer moves by leveling up after evolution. In more recent generations, unique items like the Galarica Cuff or Syrupy Apple facilitate specific evolutions [3].
+
+**Trade evolution** is a method introduced in Generation I, where certain Pokémon transform immediately after being traded between players. This method can sometimes be combined with holding a specific item during the trade, such as Electabuzz evolving into Electivire when traded while holding an Electirizer [3].
+
+**Unique and Generational Evolution Triggers:**
+Beyond these traditional methods, later generations introduced more specialized and unique triggers. **Gender-based evolution**, for example, dictates that some Pokémon will only evolve if they are of a specific gender, such as a female Combee evolving into Vespiquen [3].
+
+**Game-based evolution**, first seen in Generation VII, means a Pokémon's evolutionary outcome can depend on the specific game version it is played in, as exemplified by Cosmoem evolving into either Solgaleo or Lunala depending on whether it's leveled up in *Pokémon Sun* or *Pokémon Moon*, respectively [3].
+
+Generation VIII introduced highly specific **unique triggers** that often involve battle conditions or player actions. Examples include Galarian Farfetch'd evolving into Sirfetch'd after landing three critical hits in a single battle, or Milcery evolving into Alcremie by spinning the player character while Milcery holds a Sweet [3]. *Pokémon Legends: Arceus* further streamlined the evolution process by allowing Pokémon to evolve at any time once their conditions are met, removing the necessity of a level-up trigger [3].
+
+While not an evolution method itself, **Terastallization** in Generation IX allows a Pokémon to change its type temporarily, influencing battle dynamics. However, Generation IX also introduced new evolution requirements, such as Gimmighoul evolving into Gholdengo after the player collects 999 Gimmighoul Coins [3].
+
+### References:
+[1] Bulbapedia. (2025). *Type*. Retrieved from https://bulbapedia.bulbagarden.net/wiki/Type
+[2] Bulbapedia. (2025). *Stat*. Retrieved from https://bulbapedia.bulbagarden.net/wiki/Stat
+[3] Bulbapedia. (2025). *Methods of Evolution*. Retrieved from https://bulbapedia.bulbagarden.net/wiki/Methods_of_Evolution
+
+
+## 2.4. Battle Mechanics
+
+Pokémon battles are turn-based encounters where two or more Pokémon engage in combat using various moves and strategies. The outcome of a battle is influenced by a complex interplay of Pokémon types, stats, abilities, items, and environmental factors. Over the generations, the battle system has seen numerous additions and refinements, introducing new layers of strategy and complexity.
+
+
+**Turn Order and Speed Priority:**
+In most Pokémon battles, the turn order is primarily determined by a Pokémon's Speed stat. The Pokémon with the higher Speed stat typically attacks first. However, various factors can alter this priority, including certain moves (e.g., Quick Attack has increased priority), abilities, and held items. For example, the ability Prankster grants increased priority to status moves, allowing slower Pokémon to act first with non-damaging moves [4].
+
+**Damage Calculation:**
+Damage calculation in Pokémon is a multi-faceted process that takes into account numerous variables. The basic formula considers the attacking Pokémon's Attack or Special Attack stat, the defending Pokémon's Defense or Special Defense stat, the move's base power, and type effectiveness. Other factors such as critical hits, abilities, held items, weather conditions, and stat modifiers (e.g., stat-boosting moves like Swords Dance) further influence the final damage output. This intricate system allows for a wide range of strategic considerations when building teams and executing moves [4].
+
+**Critical Hits:**
+Critical hits are random occurrences where a move deals increased damage, bypassing any negative stat changes on the attacking Pokémon and positive stat changes on the defending Pokémon. In most generations, a critical hit deals 1.5 times the normal damage. Certain moves, abilities, and held items can increase the likelihood of landing a critical hit [4].
+
+**Status Conditions:**
+Status conditions are debilitating effects that can be inflicted on Pokémon during battle, significantly impacting their performance. These include both major status conditions (e.g., Burn, Freeze, Paralysis, Poison, Sleep) and minor status conditions (e.g., Confusion, Infatuation, Leech Seed). Each condition has unique effects, such as reducing a Pokémon's stats, preventing them from moving, or dealing passive damage. Strategic use of status conditions can turn the tide of a battle [4].
+
+**Generational Battle Features:**
+Over the years, various generations have introduced unique battle mechanics that add new layers of strategy. **Mega Evolution**, introduced in Generation VI, allowed certain Pokémon to undergo a temporary, powerful transformation during battle, boosting their stats and sometimes changing their type or ability. This required a Mega Stone held by the Pokémon and a Key Stone held by the trainer [5]. Generation VII brought **Z-Moves**, powerful, once-per-battle attacks that could be used by any Pokémon holding a Z-Crystal, provided they knew a move of the same type [6]. In Generation VIII, *Pokémon Sword and Shield* introduced **Dynamax and Gigantamax**, which temporarily enlarges a Pokémon, boosts its HP, and allows it to use powerful Max Moves, with some Pokémon having unique Gigantamax forms and G-Max Moves [7]. Most recently, Generation IX's **Terastallization** allows a Pokémon to change its type to its Tera Type, enhancing moves of that type and altering its defensive matchups [8].
+
+## 3. Conclusion
+
+The game mechanics of the Pokémon series have undergone a remarkable evolution since their inception. From the foundational elements of type matchups and stat systems to the increasingly diverse and creative methods of evolution, each generation has introduced new layers of depth and strategy. The introduction of generational battle features like Mega Evolution, Z-Moves, Dynamax, and Terastallization has continuously redefined the competitive landscape, ensuring that the Pokémon battle system remains engaging and complex for both new and veteran players. By understanding these core mechanics and their historical development, players can gain a deeper appreciation for the strategic richness of the Pokémon games.
+
+### References:
+[1] Bulbapedia. (2025). *Type*. Retrieved from https://bulbapedia.bulbagarden.net/wiki/Type
+[2] Bulbapedia. (2025). *Stat*. Retrieved from https://bulbapedia.bulbagarden.net/wiki/Stat
+[3] Bulbapedia. (2025). *Methods of Evolution*. Retrieved from https://bulbapedia.bulbagarden.net/wiki/Methods_of_Evolution
+[4] Serebii.net. (n.d.). *Game Mechanics*. Retrieved from https://www.serebii.net/games/mechanics.shtml
+[5] Bulbapedia. (2025). *Mega Evolution*. Retrieved from https://bulbapedia.bulbagarden.net/wiki/Mega_Evolution
+[6] Bulbapedia. (2025). *Z-Move*. Retrieved from https://bulbapedia.bulbagarden.net/wiki/Z-Move
+[7] Bulbapedia. (2025). *Dynamax*. Retrieved from https://bulbapedia.bulbagarden.net/wiki/Dynamax
+[8] Bulbapedia. (2025). *Terastallization*. Retrieved from https://bulbapedia.bulbagarden.net/wiki/Terastallization

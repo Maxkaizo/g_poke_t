@@ -1,176 +1,230 @@
-# 🧠 Pokémon Knowledge Graph & Semantic Retrieval (RAG-based System)
+# 🧬 Pokémon RAG System — Multi-Source Knowledge Assistant (v1.0)
 
 ## 📘 Overview
-This project implements a **Retrieval-Augmented Generation (RAG)** architecture that unifies **structured graph retrieval** and **semantic vector retrieval**.  
-The system combines **Neo4j** for relational knowledge and **Qdrant** for semantic context, enabling both factual precision and conceptual understanding in Pokémon-related queries.
 
-In short:  
-> The project’s fundamental base is a **RAG pipeline** — a hybrid retrieval system where an LLM fuses knowledge from both a graph database and a vector database to produce grounded, explainable answers.
+This project implements a **Retrieval-Augmented Generation (RAG)** system that fuses **semantic**, **factual**, and **relational** knowledge to answer Pokémon-related questions with factual precision and contextual reasoning.
 
----
+The architecture integrates:
 
-## 🧩 Problem Description
-Most Pokémon Q&A systems rely on static wikis or APIs.  
-They fail to answer **conceptual** or **multi-hop** questions such as:
-
-> “Why is Bulbasaur weak to Fire?”  
-> “How do type effectiveness rules interact with abilities?”
-
-This project addresses that by designing a **RAG-driven retrieval flow** that merges:
-1. **Graph-based reasoning (Neo4j)** → explicit entity relationships (`HAS_TYPE`, `EVOLVES_TO`, etc.)  
-2. **Semantic understanding (Qdrant + embeddings)** → contextual explanations from guides and blogs  
-3. **LLM orchestration** → integrates both retrievals in parallel to generate an informed, natural-language response.
+- 🧠 **LLM Orchestrator** – intent routing & answer synthesis  
+- 🧩 **Qdrant** – vector search with hybrid RRF ranking  
+- 📄 **MongoDB** – factual Pokémon data (species, moves, stats, abilities)  
+- 🕸 **Neo4j** – graph reasoning (evolutions, type relations, ability networks)  
+- 💬 **Streamlit** – unified interface for chat & debugging  
 
 ---
 
-## ⚙️ Current Progress
+## 🧠 System Architecture
 
-### 🧱 Graph Database (Neo4j)
-- Automated ingestion from MongoDB into Neo4j (`load_to_neo4j.py`).
-- Relationships modeled:
-  - `(:Pokemon)-[:HAS_TYPE]->(:Type)`
-  - `(:Pokemon)-[:CAN_HAVE]->(:Ability)`
-  - `(:Pokemon)-[:EVOLVES_TO]->(:Pokemon)`
-  - `(:Type)-[:STRONG_AGAINST|WEAK_AGAINST]->(:Type)`
-- ✅ Validation and export to GraphML completed.
-
-### 📄 Text Collection
-- Scraping pipeline using **BeautifulSoup + requests**.
-- Sources:
-  - [DragonflyCave - Battling Basics](https://www.dragonflycave.com/mechanics/battling-basics)  
-  - [Bulbapedia - Trainer Tips](https://bulbapedia.bulbagarden.net/wiki/Trainer_Tips)  
-  - [Puiching Blog - Beginner Trainer Guide](https://www.puiching.blog/puichinggazette/beginner-pokmon-trainer-guide)
-- Clean `.txt` files stored in `data/clean_texts/`.
-
-### 🧠 Smart Chunking (LLM-based)
-- Uses `gpt-4o-mini` to semantically segment documents into coherent sections.  
-- Each chunk is self-contained and optimized for Q&A retrieval.  
-- Output stored as `.jsonl` in `data/chunks/`.
-
-### ✨ Semantic Enrichment (Partial)
-- Added metadata per chunk:
-  - Section title  
-  - Summary and keywords (LLM-generated)  
-  - Domain and source references  
-- Output path: `data/enriched_chunks.jsonl`.
-
----
-
-## 🔍 Upcoming: Vector Knowledge Base (Qdrant)
-
-| Stage | Description | Tool |
-|--------|--------------|------|
-| **Embedding** | Generate dense vectors using **FastEmbed** | `sentence-transformers/all-MiniLM-L6-v2` |
-| **Indexing** | Store vectors + metadata | **Qdrant** (local or Docker) |
-| **Retrieval** | Parallel RAG flow: Neo4j (graph) + Qdrant (semantic) | LLM fusion layer |
-| **Evaluation** | Compare retrieval precision (graph vs. vector vs. hybrid) | Jupyter or CLI |
-
-### Example of enriched payload for Qdrant
-```json
-{
-  "id": "battling_basics_chunk_3",
-  "vector": [0.034, -0.012, 0.008, ...],
-  "payload": {
-    "title": "Move Effectiveness",
-    "text": "A move’s type and a Pokémon’s type determine how much damage it does...",
-    "summary": "Explains how type interactions determine attack effectiveness.",
-    "keywords": ["type effectiveness", "damage", "moves", "battle system"],
-    "domain": "battle_mechanics",
-    "source": "www_dragonflycave_com_mechanics_battling-basics.txt"
-  }
-}
 ```
 
----
-
-## 🧭 Retrieval Flow (RAG Pipeline)
-
-```
 User Query
-   ↓
-[Parallel Retrieval]
- ├── Neo4j → factual relations (graph)
- └── Qdrant → semantic context (vector)
-   ↓
-Fusion Layer (LLM prompt assembly)
-   ↓
-Final Answer (reasoned + contextualized)
+↓
+Intent Router (LLM)
+↓
+──────────────────────────────
+│ Parallel Retrieval Phase    │
+│ ├─ Qdrant (vector)          │ → semantic context
+│ ├─ MongoDB (No-SQL)         │ → factual data
+│ └─ Neo4j (graph)            │ → relational reasoning
+──────────────────────────────
+↓
+Fusion & Answer Generation (LLM)
+↓
+Streamlit RAG Orchestrator → Response
+
 ```
+![multi-source RAG](images/main_flow.png)
 
 
-### 🔍 Retrieval Strategy
-
-At this stage, the system performs parallel retrieval across all knowledge sources — Neo4j, MongoDB, and Qdrant — instead of relying on an autonomous routing agent.
-
-This design choice prioritizes consistency, speed, and reproducibility over dynamic complexity.
-All sources are queried concurrently, and the results are merged into a unified context before being passed to the LLM.
-
-A future version may include an intent-based retriever router that decides which database to query (graph, vector, or document) based on the user’s question type.
-For now, the parallel approach ensures reliable multi-source grounding without additional inference overhead.
+The system performs **multi-source retrieval in parallel**, merges all contexts, and lets the LLM generate a unified, explainable answer.
 
 ---
 
-## 🧰 Reproducibility
+## ⚙️ Core Pipeline
 
-### 🔧 Setup
+### 1️⃣ Ingestion & Consolidation  
+Scripts under `src/`:
+- `ingest_pokeapi_dlt_structured.py` → downloads structured data from **PokéAPI** using DLT  
+- `consolidate_pokedex_batches.py` → merges CSVs into a unified dataset  
+- `load_to_mongo.py` → loads data into **MongoDB**
+
+### 2️⃣ Normalization  
+- `normalize_mongo_data.py` → fixes JSON structure and parsing inconsistencies  
+
+### 3️⃣ Graph Construction  
+- `build_graph_from_mongo.py` → builds CSV nodes/edges  
+- `load_to_neo4j.py` → ingests the Pokémon graph into **Neo4j**
+
+Relationships modeled:
+```
+
+(:Pokemon)-[:HAS_TYPE]->(:Type)
+(:Pokemon)-[:EVOLVES_TO]->(:Pokemon)
+(:Type)-[:STRONG_AGAINST|WEAK_AGAINST]->(:Type)
+(:Pokemon)-[:HAS_ABILITY]->(:Ability)
+
+```
+
+### 4️⃣ Semantic Knowledge Base  
+- `simple_scraper.py` → extracts Pokémon guides and mechanics  
+- `smart_chunking.py` → performs **LLM-based semantic chunking & summarization**  
+- `hybrid_index_qdrant.py` → embeds & indexes chunks in **Qdrant**  
+
+### 5️⃣ Multi-Source Retrieval  
+- `hybrid_search_qdrant.py` → hybrid semantic search (RRF between dense + BM25)  
+- `mongo_query.py` → factual attribute queries  
+- `graph_query.py` → relationship queries  
+
+### 6️⃣ Fusion & Orchestration  
+- `intent_router.py` → extracts entities and intents from queries  
+- `generate_answer.py` → merges multi-DB results and generates grounded answers  
+- `app_streamlit.py` → orchestrator UI with **Chat** and **Debug** modes  
+
+---
+
+## 🧰 Environment Setup
+
+### Prerequisites
+- Python ≥ 3.10  
+- [uv](https://docs.astral.sh/uv/) (package & environment manager)  
+- OpenAI API key  
+- Docker (for running the databases defined in the repo)
+
+### Installation
 
 ```bash
-git clone <repo>
-cd project
-pip install -r requirements.txt
-```
+git clone https://github.com/Maxkaizo/g_poke_t.git
+cd g_poke_t
+uv sync
+````
 
-### 🧱 Run ingestion
+### Environment Variables
 
-```bash
-python src/load_to_neo4j.py
-```
-
-### 📄 Run scraping + chunking
+Create a `.env` file from the example provided:
 
 ```bash
-python src/scraping/simple_scraper.py
-python src/text_processing/smart_chunking.py
+cp .env_example .env
 ```
 
-### 🧠 Environment
+Then edit with your credentials:
 
-* Python 3.11
-* Neo4j 5.x
-* MongoDB 6.x
-* Qdrant 1.x
-* OpenAI API key (for LLM-based chunking and enrichment)
-
----
-
-## 🧱 Next Steps
-
-* [ ] Index enriched chunks in Qdrant using FastEmbed
-* [ ] Implement semantic retrieval pipeline (`index_qdrant.py` & `query_qdrant.py`)
-* [ ] Evaluate hybrid retrieval (graph + vector fusion)
-* [ ] Add Streamlit UI for RAG query exploration
-* [ ] Containerize with Docker Compose for full reproducibility
-
----
-
-## 🧾 Rubric Alignment (Current Progress)
-
-| Criterion                | Status | Notes                                            |
-| ------------------------ | ------ | ------------------------------------------------ |
-| **Problem Description**  | ✅      | Clear and well-defined RAG objective             |
-| **Retrieval Flow**       | ✅      | Combines Neo4j, Qdrant, and LLM                  |
-| **Ingestion Pipeline**   | ✅      | Fully automated ingestion scripts                |
-| **Interface**            | 🟡     | Streamlit app planned                            |
-| **Reproducibility**      | ✅      | Scripts, folder structure, environment defined   |
-| **Retrieval Evaluation** | 🟡     | Planned evaluation (graph vs. vector vs. hybrid) |
-
----
-
-### 🧩 Summary
-
-> The project’s core foundation is a **Retrieval-Augmented Generation (RAG)** system that merges **symbolic (graph)** and **semantic (vector)** reasoning.
-> It enables factually accurate, contextually rich, and explainable answers to complex Pokémon-related queries.
-
+```bash
+OPENAI_API_KEY=sk-xxxx
+QDRANT_URL=http://localhost:6333
+QDRANT_API_KEY=pokedex-key
+QDRANT_COLLECTION=pokedex_hybrid
+MONGO_URI=mongodb://localhost:27017
+NEO4J_URI=bolt://localhost:7687
+NEO4J_USER=neo4j
+NEO4J_PASSWORD=yourpassword
 ```
 
 ---
+
+## 🚀 Run the Full System
+
+### 1️⃣ Set up
+
+```bash
+make setup
+```
+or
+
+```bash
+uv run python src/ingest_pokeapi_dlt_structured.py
+uv run python src/consolidate_pokedex_batches.py
+uv run python src/load_to_mongo.py
+uv run python src/normalize_mongo_data.py
+uv run python src/build_graph_from_mongo.py
+uv run python src/load_to_neo4j.py
+uv run python src/smart_chunking.py
+uv run python src/hybrid_index_qdrant.py
+```
+
+### 2️⃣ Launch the RAG Orchestrator
+
+```bash
+make run
+```
+or
+
+```bash
+uv run streamlit run src/app_streamlit.py
+```
+
+Then open: [http://localhost:8501](http://localhost:8501)
+
+---
+
+## 🧭 Example Query Flow
+
+| Step                                                          | Component                                            | Output |
+| ------------------------------------------------------------- | ---------------------------------------------------- | ------ |
+| User asks: “How does Eevee evolve and what type is Vaporeon?” | —                                                    | —      |
+| Intent Router                                                 | Extracts entities → `Eevee`, `Vaporeon`              |        |
+| Qdrant                                                        | Returns semantic context about evolution mechanics   |        |
+| MongoDB                                                       | Returns factual Pokémon data (species, type, stats)  |        |
+| Neo4j                                                         | Finds relation `(:Eevee)-[:EVOLVES_TO]->(:Vaporeon)` |        |
+| LLM Fusion                                                    | Combines all retrieved info                          |        |
+| Streamlit                                                     | Displays reasoning + grounded answer                 |        |
+
+---
+
+## 📊 Evaluation (Work in Progress)
+
+The upcoming evaluation module (`evaluate_rag.py`) will assess:
+
+| Metric                         | Purpose                                   |
+| ------------------------------ | ----------------------------------------- |
+| **HR@k (Hit Rate)**            | Check if correct context appears in top-k |
+| **MRR (Mean Reciprocal Rank)** | Evaluate retrieval ranking                |
+| **Faithfulness Score**         | Check factual grounding of LLM answers    |
+| **Response Coherence**         | Evaluate semantic consistency             |
+
+Comparison modes:
+
+* Qdrant-only
+* Neo4j-only
+* Hybrid (RRF fusion)
+
+---
+
+## ✅ Current Status
+
+| Module            | Status | Notes                       |
+| ----------------- | ------ | --------------------------- |
+| PokéAPI ingestion | ✅      | Automated via DLT           |
+| MongoDB           | ✅      | Normalized factual data     |
+| Neo4j             | ✅      | Graph model fully loaded    |
+| Qdrant            | ✅      | Hybrid semantic index       |
+| Intent router     | ✅      | LLM-based entity extraction |
+| Streamlit app     | ✅      | Chat + debug modes          |
+| Evaluation        | 🟡     | Framework pending           |
+
+---
+
+## 🧩 Summary
+
+> The **Pokémon RAG System** is a fully reproducible, multi-source retrieval pipeline that merges **symbolic reasoning (Neo4j)**, **factual data (MongoDB)**, and **semantic understanding (Qdrant)** into a single LLM-driven assistant.
+
+**Core principle:**
+
+> *Graph reasoning explains “what” and “how”; semantic retrieval explains “why.”*
+
+---
+
+## 🧱 Next Milestones
+
+* [ ] Add evaluation scripts & dashboard
+* [ ] Improve embedding quality (contrastive fine-tuning)
+* [ ] Integrate caching + conversation memory
+* [ ] Deploy cloud-ready container build
+
+---
+
+**Author:** [Maxkaizo](https://github.com/Maxkaizo)
+**Course:** DataTalksClub — LLM Zoomcamp 2025
+**Version:** `v1.0 – Fully Integrated Multi-Source RAG`
+
+```

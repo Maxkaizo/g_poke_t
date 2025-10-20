@@ -1,0 +1,465 @@
+═══════════════════════════════════════════════════════════════════════
+                COMPLETE GUIDE TO POKÉMON GAME MECHANICS
+              Everything You Need to Know to Master the Game
+═══════════════════════════════════════════════════════════════════════
+
+INTRODUCTION
+
+What is Pokémon?
+
+Pokémon is a role-playing game (RPG) franchise created by Satoshi Tajiri 
+in 1996. Although on the surface it seems like a simple "catch and collect" 
+game, it actually contains an incredibly deep combat system based on 
+statistics, types, abilities, and strategy.
+
+The main goal is to become a Pokémon Master by capturing, training, and 
+evolving these creatures while exploring different regions and defeating 
+other trainers in turn-based strategic battles.
+
+───────────────────────────────────────────────────────────────────────
+
+HISTORICAL CONTEXT
+
+• 1996: Launch of Pokémon Red and Green in Japan for Game Boy
+• Generations: Currently there are 9 generations with over 1000 species
+• Mechanics: The combat system has evolved but maintains its original 
+  foundations
+• Creator: Satoshi Tajiri was inspired by his childhood passion for 
+  collecting insects
+
+───────────────────────────────────────────────────────────────────────
+
+SYSTEM DEPTH
+
+• 18 types with complex effectiveness interactions
+• 6 statistics that determine battle performance
+• Hidden values (IVs and EVs) that add individual variation
+• Over 900 different moves with unique effects
+• Ability system that modifies combat
+• Weather, terrain, and other environmental condition mechanics
+
+═══════════════════════════════════════════════════════════════════════
+
+TYPE SYSTEM
+
+The type system is the core of Pokémon combat. Each Pokémon has one or 
+two types, and each move has one type. The effectiveness of an attack 
+depends on the interaction between the move's type and the target 
+Pokémon's types.
+
+───────────────────────────────────────────────────────────────────────
+
+DAMAGE MULTIPLIERS
+
+✅ SUPER EFFECTIVE (2x): The attack is very strong against that type
+   Damage is doubled. If a type has a double weakness (two types 
+   vulnerable to the same attack), the multiplier is 4x.
+
+⚪ NEUTRAL (1x): Normal damage
+   No type advantage or disadvantage.
+
+❌ NOT VERY EFFECTIVE (0.5x): The attack is weak against that type
+   Damage is reduced to half. If both types resist, the multiplier 
+   is 0.25x.
+
+🚫 IMMUNE (0x): The attack has no effect
+   The move causes no damage. For example, Normal-type moves don't 
+   affect Ghost types.
+
+───────────────────────────────────────────────────────────────────────
+
+THE 18 TYPES AND THEIR INTERACTIONS
+
+🔥 FIRE TYPE
+   Strong against: Grass, Ice, Bug, Steel
+   Weak against: Water, Ground, Rock
+   Iconic Pokémon: Charizard, Arcanine, Blaziken
+
+💧 WATER TYPE
+   Strong against: Fire, Ground, Rock
+   Weak against: Grass, Electric
+   Iconic Pokémon: Blastoise, Gyarados, Greninja
+
+🌱 GRASS TYPE
+   Strong against: Water, Ground, Rock
+   Weak against: Fire, Ice, Poison, Flying, Bug
+   Iconic Pokémon: Venusaur, Sceptile, Decidueye
+
+⚡ ELECTRIC TYPE
+   Strong against: Water, Flying
+   Weak against: Ground
+   Immune to: None (but Ground is immune to Electric)
+   Iconic Pokémon: Pikachu, Raichu, Luxray
+
+🔮 PSYCHIC TYPE
+   Strong against: Fighting, Poison
+   Weak against: Bug, Ghost, Dark
+   Iconic Pokémon: Alakazam, Mewtwo, Espeon
+
+🐉 DRAGON TYPE
+   Strong against: Dragon
+   Weak against: Ice, Dragon, Fairy
+   Iconic Pokémon: Dragonite, Salamence, Garchomp
+
+🧚 FAIRY TYPE (Introduced in Generation VI)
+   Strong against: Fighting, Dragon, Dark
+   Weak against: Poison, Steel
+   Immune to: Dragon
+   Iconic Pokémon: Sylveon, Gardevoir, Togekiss
+
+⚫ DARK TYPE
+   Strong against: Psychic, Ghost
+   Weak against: Fighting, Bug, Fairy
+   Immune to: Psychic
+   Iconic Pokémon: Umbreon, Tyranitar, Hydreigon
+
+───────────────────────────────────────────────────────────────────────
+
+STAB (SAME-TYPE ATTACK BONUS)
+
+When a Pokémon uses a move that matches its own type, the damage is 
+multiplied by 1.5x.
+
+Example: When Pikachu (Electric type) uses Thunderbolt (Electric move), 
+the attack is 50% stronger than if a Pokémon of another type used it.
+
+Strategy: This incentivizes using moves of the same type as your Pokémon, 
+but it's also important to have coverage moves to attack the opponent's 
+weaknesses.
+
+═══════════════════════════════════════════════════════════════════════
+
+STATISTICS SYSTEM
+
+Each Pokémon has six main statistics that determine its battle performance. 
+These statistics are influenced by several factors: the Pokémon's species 
+(base stats), its level, its IVs (individual values), its EVs (effort 
+values), and its nature.
+
+───────────────────────────────────────────────────────────────────────
+
+THE SIX STATISTICS
+
+❤️ HP (HIT POINTS)
+   Health points. Determines how much damage it can receive before 
+   fainting. When it reaches 0, the Pokémon faints and cannot continue 
+   battling.
+
+⚔️ ATTACK
+   Determines the damage of physical moves like Tackle, Fire Punch, 
+   Earthquake, or Dragon Claw. The higher it is, the more damage your 
+   physical attacks will do.
+
+🛡️ DEFENSE
+   Reduces damage received from physical attacks. A Pokémon with high 
+   Defense can withstand powerful physical blows.
+
+✨ SPECIAL ATTACK
+   Determines the damage of special moves like Flamethrower, Hydro Pump, 
+   Psychic, or Thunderbolt. Special moves are usually elemental or 
+   energy attacks.
+
+🌟 SPECIAL DEFENSE
+   Reduces damage received from special attacks. Protects against moves 
+   like Surf, Psybeam, or Flare Blitz.
+
+⚡ SPEED
+   Determines which Pokémon attacks first each turn. The faster Pokémon 
+   generally attacks first (except with priority moves). Crucial for 
+   offensive strategies.
+
+───────────────────────────────────────────────────────────────────────
+
+IVs (INDIVIDUAL VALUES)
+
+They are random genetic values between 0 and 31 for each statistic. 
+Two Pokémon of the same species can have different stats due to their 
+unique IVs.
+
+• Range: 0-31 for each stat (6 stats in total)
+• Assignment: Random when encountering or breeding a Pokémon
+• Impact: An IV of 31 vs 0 can mean ~15-20 points difference in a 
+  stat at level 100
+
+Example: A Pikachu with 31 IVs in Speed will be faster than one with 
+0 IVs, even at the same level.
+
+Competitive: Serious players seek Pokémon with perfect IVs (31 in all 
+relevant stats, called "6IV" or "5IV" if one stat doesn't matter).
+
+───────────────────────────────────────────────────────────────────────
+
+EVs (EFFORT VALUES)
+
+They are points you gain by defeating Pokémon. You can distribute up to 
+510 EVs in total, with a maximum of 252 per statistic. Every 4 EVs equal 
++1 point in that stat at level 100.
+
+• Total maximum: 510 EVs
+• Maximum per stat: 252 EVs
+• Conversion: 4 EVs = +1 stat point at level 100
+• Acquisition: Defeat specific Pokémon, use vitamins, or items
+
+Common distributions:
+• 252/252/4: Maximize two stats, put the remaining 4 in another
+• 252/128/128: Main focus with two secondaries
+• 252/252/0/0/0/4: Extreme specialization
+
+Strategy: Competitive players train specifically against Pokémon that 
+give EVs in the stats they want to maximize. For example, defeating 
+Starly gives +1 EV in Speed.
+
+───────────────────────────────────────────────────────────────────────
+
+NATURES
+
+Each Pokémon has a nature that increases one statistic by 10% and reduces 
+another by 10%. There are 25 different natures, and choosing the right 
+one is crucial for competitive strategy.
+
+Popular natures:
+
+• JOLLY: +Speed / -Special Attack
+  Ideal for fast physical attackers
+
+• MODEST: +Special Attack / -Attack
+  Perfect for special attackers
+
+• ADAMANT: +Attack / -Special Attack
+  Excellent for pure physical attackers
+
+• TIMID: +Speed / -Attack
+  Great for fast special attackers
+
+• CAREFUL: +Special Defense / -Special Attack
+  Good for special tanks
+
+Neutral natures (don't modify anything):
+• Hardy, Docile, Quirky, Bashful, Serious
+
+═══════════════════════════════════════════════════════════════════════
+
+BATTLE MECHANICS
+
+Pokémon battles are turn-based combats where strategy is key. Each turn, 
+you choose an action: use a move, switch Pokémon, use an item, or run 
+(in wild battles). The order of actions is mainly determined by Speed.
+
+───────────────────────────────────────────────────────────────────────
+
+DAMAGE CALCULATION
+
+Damage is calculated using a complex formula that considers:
+
+1. Attacker's level
+2. Move's base power
+3. Attacker's Attack vs target's Defense
+4. Type effectiveness (0x, 0.5x, 1x, 2x, 4x)
+5. STAB (1.5x if the type matches)
+6. Critical hit (1.5x extra damage)
+7. Random variation (85%-100%)
+8. Additional modifiers (weather, abilities, items)
+
+Simplified formula:
+Damage = ((2 × Level / 5 + 2) × Power × Atk/Def / 50 + 2) × Modifiers
+
+Modifiers include STAB, type effectiveness, critical, weather, and the 
+random factor.
+
+───────────────────────────────────────────────────────────────────────
+
+ACCURACY AND CRITICAL HITS
+
+ACCURACY:
+Each move has an accuracy percentage. More powerful moves usually have 
+lower accuracy to balance the game.
+
+Examples:
+• Hydro Pump: 80% accuracy, 110 power
+• Surf: 100% accuracy, 90 power
+• Thunder: 70% accuracy, 110 power
+• Thunderbolt: 100% accuracy, 90 power
+
+CRITICAL HITS:
+• Base probability: ~4.17% (1/24)
+• Effect: 1.5x damage
+• Ignore negative stat changes on the attacker and positive ones on 
+  the defender
+• Some moves and abilities increase critical hit rate
+
+───────────────────────────────────────────────────────────────────────
+
+STATUS CONDITIONS
+
+🔥 BURN
+   • Damage: Loses 1/16 of max HP each turn
+   • Effect: Physical Attack reduced to half
+   • Duration: Permanent until cured
+   • Strategy: Excellent against physical attackers
+
+⚡ PARALYSIS
+   • Speed: Reduced to 50%
+   • Effect: 25% chance of not being able to attack each turn
+   • Duration: Permanent until cured
+   • Strategy: Useful for slowing down fast opponents
+
+🧪 POISON
+   • Damage: Loses 1/8 of max HP each turn
+   • Badly poisoned: Damage increases each turn (1/16, 2/16, 3/16...)
+   • Duration: Permanent until cured
+   • Strategy: Long-term wear down
+
+❄️ FREEZE
+   • Effect: Cannot attack until thawed
+   • Thawing: 20% chance each turn
+   • Duration: Variable (can be indefinite)
+   • Note: Very rare to inflict, fire moves thaw
+
+😴 SLEEP
+   • Effect: Cannot attack for 1-3 turns
+   • Duration: Determined when put to sleep
+   • Strategy: Time to set up attacks or heal
+   • Some Pokémon can attack while asleep with special moves
+
+😵 CONFUSION (Not a primary status)
+   • Effect: 50% chance of hitting itself
+   • Damage: 40 power, physical type
+   • Duration: 1-4 turns
+   • Cured when switching Pokémon
+
+═══════════════════════════════════════════════════════════════════════
+
+POKÉMON EVOLUTION
+
+Evolution is the process by which a Pokémon transforms into a more 
+powerful form. When a Pokémon evolves, its base statistics increase 
+significantly, it can learn new moves, and sometimes changes type or 
+gains a second type.
+
+───────────────────────────────────────────────────────────────────────
+
+EVOLUTION METHODS
+
+📈 BY LEVEL
+The most common method. The Pokémon evolves upon reaching a specific level.
+
+Examples:
+• Charmander → Charmeleon (level 16) → Charizard (level 36)
+• Pidgey → Pidgeotto (level 18) → Pidgeot (level 36)
+• Magikarp → Gyarados (level 20)
+
+💎 BY STONE
+Use a specific evolution stone (Fire Stone, Water Stone, Thunder Stone, etc.).
+
+Examples:
+• Pikachu + Thunder Stone → Raichu
+• Eevee + Water Stone → Vaporeon
+• Vulpix + Fire Stone → Ninetales
+• Clefairy + Moon Stone → Clefable
+
+💝 BY FRIENDSHIP
+Level up with high happiness/friendship (220+ on a scale of 0-255).
+
+Examples:
+• Eevee → Espeon (daytime, with high friendship)
+• Eevee → Umbreon (nighttime, with high friendship)
+• Golbat → Crobat (high friendship)
+• Chansey → Blissey (high friendship)
+
+How to increase friendship:
+• Walk with the Pokémon
+• Level up
+• Use vitamins
+• Give massages
+• Don't let it faint
+
+🔄 BY TRADING
+Trade the Pokémon with another player.
+
+Examples:
+• Kadabra → Alakazam (when traded)
+• Machoke → Machamp (when traded)
+• Graveler → Golem (when traded)
+• Haunter → Gengar (when traded)
+
+Some require item:
+• Onix + Metal Coat → Steelix (when traded)
+• Seadra + Dragon Scale → Kingdra (when traded)
+
+📍 BY LOCATION
+Level up in a specific location (magnetic field, mossy rock, icy rock, etc.).
+
+Examples:
+• Eevee → Leafeon (near Moss Rock)
+• Eevee → Glaceon (near Ice Rock)
+• Magneton → Magnezone (in area with magnetic field)
+• Nosepass → Probopass (in area with magnetic field)
+
+🎯 SPECIAL CONDITIONS
+Unique methods: knowing a move, specific gender, time of day, having 
+another Pokémon in the party, etc.
+
+Examples:
+• Piloswine → Mamoswine (level up knowing "Ancient Power")
+• Eevee → Sylveon (level up knowing Fairy-type move + high friendship)
+• Tyrogue → Hitmonchan (level 20, Attack < Defense)
+• Tyrogue → Hitmonlee (level 20, Attack > Defense)
+• Tyrogue → Hitmontop (level 20, Attack = Defense)
+• Mantyke → Mantine (level up with Remoraid in party)
+
+───────────────────────────────────────────────────────────────────────
+
+IMPORTANT FACTS ABOUT EVOLUTION
+
+✅ STAT INCREASE
+Base statistics increase significantly, making the Pokémon much stronger. 
+For example, Charmander has 309 total base stats, while Charizard has 534.
+
+⏸️ CANCEL EVOLUTION
+You can press B during the animation to cancel it. Useful if you want 
+it to learn moves earlier that are only available in its pre-evolved form.
+
+🎓 EXCLUSIVE MOVES
+Some Pokémon learn certain moves only before evolving. For example, 
+Charmander learns "Flamethrower" at level 34, but Charmeleon learns it 
+at level 42. Plan well!
+
+🔒 IRREVERSIBLE EVOLUTION
+Once a Pokémon evolves, it cannot return to its previous form (except 
+with special mechanics like Mega Evolution or Dynamax, which are temporary).
+
+🎭 TYPE CHANGE
+Some Pokémon change type when they evolve. For example:
+• Eevee (Normal) → Vaporeon (Water)
+• Swablu (Normal/Flying) → Altaria (Dragon/Flying)
+• Azurill (Normal/Fairy) → Marill (Water/Fairy)
+
+═══════════════════════════════════════════════════════════════════════
+
+TIPS FOR PLAYERS
+
+1. BUILD A BALANCED TEAM
+   Don't use 6 Pokémon of the same type. Diversify to cover more 
+   weaknesses and have advantages against different opponents.
+
+2. KNOW THE WEAKNESSES
+   Memorize the most important type interactions. Knowing what's 
+   effective against what will give you an advantage in battle.
+
+3. TRAIN YOUR EVs STRATEGICALLY
+   Don't let your Pokémon gain random EVs. Plan which stats you want 
+   to maximize and train against specific Pokémon.
+
+4. USE COVERAGE MOVES
+   Don't only use moves of your Pokémon's type. Include moves that 
+   cover its weaknesses.
+
+5. CONSIDER SPEED
+   In competitive battles, attacking first can be the difference 
+   between winning and losing. Invest in Speed when necessary.
+
+═══════════════════════════════════════════════════════════════════════
+
+Created for students passionate about Pokémon 🎓
+Sources: Bulbapedia, Serebii.net, The Cave of Dragonflies
+

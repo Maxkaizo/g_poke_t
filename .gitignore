@@ -207,8 +207,12 @@ marimo/_lsp/
 __marimo__/
 
 
-# data
-data/
+# Ignore all data by default
+data/*
+
+# But keep the KB folder
+!data/clean_texts/
+!data/clean_texts/**
 
 #backups
 backup/

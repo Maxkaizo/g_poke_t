@@ -1,0 +1,472 @@
+═══════════════════════════════════════════════════════════════════════
+                    GUÍA COMPLETA DE MECÁNICAS DE POKÉMON
+                Todo lo que necesitas saber para dominar el juego
+═══════════════════════════════════════════════════════════════════════
+
+INTRODUCCIÓN
+
+¿Qué es Pokémon?
+
+Pokémon es una franquicia de videojuegos de rol (RPG) creada por Satoshi 
+Tajiri en 1996. Aunque en la superficie parece un juego simple de "atrapa 
+y colecciona", en realidad contiene un sistema de combate increíblemente 
+profundo basado en estadísticas, tipos, habilidades y estrategia.
+
+El objetivo principal es convertirte en Maestro Pokémon capturando, 
+entrenando y evolucionando a estas criaturas mientras exploras diferentes 
+regiones y derrotas a otros entrenadores en batallas estratégicas por turnos.
+
+---
+
+CONTEXTO HISTÓRICO
+
+• 1996: Lanzamiento de Pokémon Red y Green en Japón para Game Boy
+• Generaciones: Actualmente hay 9 generaciones con más de 1000 especies
+• Mecánicas: El sistema de combate ha evolucionado pero mantiene sus 
+  fundamentos originales
+• Creador: Satoshi Tajiri se inspiró en su pasión infantil por coleccionar 
+  insectos
+
+---
+
+PROFUNDIDAD DEL SISTEMA
+
+• 18 tipos con interacciones complejas de efectividad
+• 6 estadísticas que determinan el rendimiento en batalla
+• Valores ocultos (IVs y EVs) que añaden variación individual
+• Más de 900 movimientos diferentes con efectos únicos
+• Sistema de habilidades que modifican el combate
+• Mecánicas de clima, terreno y otras condiciones ambientales
+
+═══════════════════════════════════════════════════════════════════════
+
+SISTEMA DE TIPOS
+
+El sistema de tipos es el núcleo del combate en Pokémon. Cada Pokémon 
+tiene uno o dos tipos, y cada movimiento tiene un tipo. La efectividad 
+de un ataque depende de la interacción entre el tipo del movimiento y 
+los tipos del Pokémon objetivo.
+
+---
+
+MULTIPLICADORES DE DAÑO
+
+✅ SÚPER EFECTIVO (2x): El ataque es muy fuerte contra ese tipo
+   El daño se duplica. Si un tipo tiene doble debilidad (dos tipos 
+   vulnerables al mismo ataque), el multiplicador es 4x.
+
+⚪ NEUTRAL (1x): Daño normal
+   No hay ventaja ni desventaja de tipos.
+
+❌ NO MUY EFECTIVO (0.5x): El ataque es débil contra ese tipo
+   El daño se reduce a la mitad. Si ambos tipos resisten, el 
+   multiplicador es 0.25x.
+
+🚫 INMUNE (0x): El ataque no tiene efecto
+   El movimiento no causa ningún daño. Por ejemplo, movimientos 
+   tipo Normal no afectan a tipos Fantasma.
+
+---
+
+LOS 18 TIPOS Y SUS INTERACCIONES
+
+🔥 TIPO FUEGO
+   Fuerte contra: Planta, Hielo, Bicho, Acero
+   Débil contra: Agua, Tierra, Roca
+   Pokémon icónicos: Charizard, Arcanine, Blaziken
+
+💧 TIPO AGUA
+   Fuerte contra: Fuego, Tierra, Roca
+   Débil contra: Planta, Eléctrico
+   Pokémon icónicos: Blastoise, Gyarados, Greninja
+
+🌱 TIPO PLANTA
+   Fuerte contra: Agua, Tierra, Roca
+   Débil contra: Fuego, Hielo, Veneno, Volador, Bicho
+   Pokémon icónicos: Venusaur, Sceptile, Decidueye
+
+⚡ TIPO ELÉCTRICO
+   Fuerte contra: Agua, Volador
+   Débil contra: Tierra
+   Inmune a: Ninguno (pero Tierra es inmune a Eléctrico)
+   Pokémon icónicos: Pikachu, Raichu, Luxray
+
+🔮 TIPO PSÍQUICO
+   Fuerte contra: Lucha, Veneno
+   Débil contra: Bicho, Fantasma, Siniestro
+   Pokémon icónicos: Alakazam, Mewtwo, Espeon
+
+🐉 TIPO DRAGÓN
+   Fuerte contra: Dragón
+   Débil contra: Hielo, Dragón, Hada
+   Pokémon icónicos: Dragonite, Salamence, Garchomp
+
+🧚 TIPO HADA (Introducido en Generación VI)
+   Fuerte contra: Lucha, Dragón, Siniestro
+   Débil contra: Veneno, Acero
+   Inmune a: Dragón
+   Pokémon icónicos: Sylveon, Gardevoir, Togekiss
+
+⚫ TIPO SINIESTRO
+   Fuerte contra: Psíquico, Fantasma
+   Débil contra: Lucha, Bicho, Hada
+   Inmune a: Psíquico
+   Pokémon icónicos: Umbreon, Tyranitar, Hydreigon
+
+---
+
+STAB (SAME-TYPE ATTACK BONUS)
+
+Cuando un Pokémon usa un movimiento que coincide con su propio tipo, 
+el daño se multiplica por 1.5x.
+
+Ejemplo: Cuando Pikachu (tipo Eléctrico) usa Impactrueno (movimiento 
+Eléctrico), el ataque es un 50% más fuerte que si lo usara un Pokémon 
+de otro tipo.
+
+Estrategia: Esto incentiviza usar movimientos del mismo tipo que tu 
+Pokémon, pero también es importante tener movimientos de cobertura 
+para atacar las debilidades del oponente.
+
+═══════════════════════════════════════════════════════════════════════
+
+SISTEMA DE ESTADÍSTICAS
+
+Cada Pokémon tiene seis estadísticas principales que determinan su 
+rendimiento en batalla. Estas estadísticas están influenciadas por 
+varios factores: la especie del Pokémon (stats base), su nivel, sus 
+IVs (valores individuales), sus EVs (valores de esfuerzo) y su naturaleza.
+
+---
+
+LAS SEIS ESTADÍSTICAS
+
+❤️ HP (HIT POINTS)
+   Puntos de vida. Determina cuánto daño puede recibir antes de 
+   debilitarse. Cuando llega a 0, el Pokémon se debilita y no puede 
+   seguir combatiendo.
+
+⚔️ ATAQUE
+   Determina el daño de movimientos físicos como Placaje, Puño Fuego, 
+   Terremoto, o Garra Dragón. Cuanto mayor sea, más daño harán tus 
+   ataques físicos.
+
+🛡️ DEFENSA
+   Reduce el daño recibido de ataques físicos. Un Pokémon con alta 
+   Defensa puede resistir golpes físicos poderosos.
+
+✨ ATAQUE ESPECIAL
+   Determina el daño de movimientos especiales como Lanzallamas, 
+   Hidrobomba, Psíquico, o Rayo. Los movimientos especiales suelen 
+   ser ataques elementales o de energía.
+
+🌟 DEFENSA ESPECIAL
+   Reduce el daño recibido de ataques especiales. Protege contra 
+   movimientos como Surf, Psicorrayo, o Llamarada.
+
+⚡ VELOCIDAD
+   Determina qué Pokémon ataca primero en cada turno. El Pokémon más 
+   rápido generalmente ataca primero (excepto con movimientos de 
+   prioridad). Crucial para estrategias ofensivas.
+
+---
+
+IVs (INDIVIDUAL VALUES) - VALORES INDIVIDUALES
+
+Son valores genéticos aleatorios entre 0 y 31 para cada estadística. 
+Dos Pokémon de la misma especie pueden tener stats diferentes debido 
+a sus IVs únicos.
+
+• Rango: 0-31 para cada stat (6 stats en total)
+• Asignación: Aleatorio al encontrar o criar un Pokémon
+• Impacto: Un IV de 31 vs 0 puede significar ~15-20 puntos de diferencia 
+  en una stat al nivel 100
+
+Ejemplo: Un Pikachu con 31 IVs en Velocidad será más rápido que uno 
+con 0 IVs, incluso al mismo nivel.
+
+Competitivo: Los jugadores serios buscan Pokémon con IVs perfectos 
+(31 en todas las stats relevantes, llamado "6IV" o "5IV" si una stat 
+no importa).
+
+---
+
+EVs (EFFORT VALUES) - VALORES DE ESFUERZO
+
+Son puntos que ganas al derrotar Pokémon. Puedes distribuir hasta 510 
+EVs en total, con un máximo de 252 por estadística. Cada 4 EVs equivalen 
+a +1 punto en esa stat al nivel 100.
+
+• Total máximo: 510 EVs
+• Máximo por stat: 252 EVs
+• Conversión: 4 EVs = +1 stat point al nivel 100
+• Obtención: Derrotar Pokémon específicos, usar vitaminas, o items
+
+Distribuciones comunes:
+• 252/252/4: Maximizar dos stats, poner los 4 restantes en otra
+• 252/128/128: Enfoque principal con dos secundarias
+• 252/252/0/0/0/4: Especialización extrema
+
+Estrategia: Los jugadores competitivos entrenan específicamente contra 
+Pokémon que dan EVs en las stats que quieren maximizar. Por ejemplo, 
+derrotar Starly da +1 EV en Velocidad.
+
+---
+
+NATURALEZAS
+
+Cada Pokémon tiene una naturaleza que aumenta una estadística en un 10% 
+y reduce otra en un 10%. Hay 25 naturalezas diferentes, y elegir la 
+correcta es crucial para la estrategia competitiva.
+
+Naturalezas populares:
+
+• ALEGRE (Jolly): +Velocidad / -Ataque Especial
+  Ideal para atacantes físicos rápidos
+
+• MODESTA (Modest): +Ataque Especial / -Ataque
+  Perfecta para atacantes especiales
+
+• FIRME (Adamant): +Ataque / -Ataque Especial
+  Excelente para atacantes físicos puros
+
+• TÍMIDA (Timid): +Velocidad / -Ataque
+  Genial para atacantes especiales rápidos
+
+• CAUTA (Careful): +Defensa Especial / -Ataque Especial
+  Buena para tanques especiales
+
+Naturalezas neutrales (no modifican nada):
+• Seria, Dócil, Rara, Fuerte, Tímida
+
+═══════════════════════════════════════════════════════════════════════
+
+MECÁNICAS DE COMBATE
+
+Las batallas Pokémon son combates por turnos donde la estrategia es clave. 
+En cada turno, eliges una acción: usar un movimiento, cambiar de Pokémon, 
+usar un objeto, o huir (en batallas salvajes). El orden de las acciones 
+se determina principalmente por la Velocidad.
+
+---
+
+CÁLCULO DE DAÑO
+
+El daño se calcula usando una fórmula compleja que considera:
+
+1. Nivel del atacante
+2. Poder base del movimiento
+3. Ataque del atacante vs Defensa del objetivo
+4. Efectividad de tipos (0x, 0.5x, 1x, 2x, 4x)
+5. STAB (1.5x si el tipo coincide)
+6. Golpe crítico (1.5x de daño extra)
+7. Variación aleatoria (85%-100%)
+8. Modificadores adicionales (clima, habilidades, items)
+
+Fórmula simplificada:
+Daño = ((2 × Nivel / 5 + 2) × Poder × Atk/Def / 50 + 2) × Modificadores
+
+Los modificadores incluyen STAB, efectividad de tipo, crítico, clima, 
+y el factor aleatorio.
+
+---
+
+PRECISIÓN Y CRÍTICOS
+
+PRECISIÓN:
+Cada movimiento tiene un porcentaje de precisión. Movimientos más 
+poderosos suelen tener menor precisión para balancear el juego.
+
+Ejemplos:
+• Hidrobomba: 80% de precisión, 110 de poder
+• Surf: 100% de precisión, 90 de poder
+• Rayo: 70% de precisión, 110 de poder
+• Impactrueno: 100% de precisión, 90 de poder
+
+GOLPES CRÍTICOS:
+• Probabilidad base: ~4.17% (1/24)
+• Efecto: 1.5x de daño
+• Ignoran cambios de estadísticas negativos del atacante y positivos 
+  del defensor
+• Algunos movimientos y habilidades aumentan la tasa de críticos
+
+---
+
+ESTADOS ALTERADOS
+
+🔥 QUEMADURA
+   • Daño: Pierde 1/16 de HP máximo cada turno
+   • Efecto: Ataque físico reducido a la mitad
+   • Duración: Permanente hasta curar
+   • Estrategia: Excelente contra atacantes físicos
+
+⚡ PARÁLISIS
+   • Velocidad: Reducida al 50%
+   • Efecto: 25% de probabilidad de no poder atacar cada turno
+   • Duración: Permanente hasta curar
+   • Estrategia: Útil para ralentizar oponentes rápidos
+
+🧪 VENENO
+   • Daño: Pierde 1/8 de HP máximo cada turno
+   • Veneno grave: El daño aumenta cada turno (1/16, 2/16, 3/16...)
+   • Duración: Permanente hasta curar
+   • Estrategia: Desgaste a largo plazo
+
+❄️ CONGELACIÓN
+   • Efecto: No puede atacar hasta descongelarse
+   • Descongelación: 20% de probabilidad cada turno
+   • Duración: Variable (puede ser indefinida)
+   • Nota: Muy raro de infligir, movimientos de fuego desconguelan
+
+😴 SUEÑO
+   • Efecto: No puede atacar por 1-3 turnos
+   • Duración: Determinada al dormir
+   • Estrategia: Tiempo para preparar ataques o curarse
+   • Algunos Pokémon pueden atacar dormidos con movimientos especiales
+
+😵 CONFUSIÓN (No es un estado primario)
+   • Efecto: 50% de probabilidad de golpearse a sí mismo
+   • Daño: 40 de poder, tipo físico
+   • Duración: 1-4 turnos
+   • Se cura al cambiar de Pokémon
+
+═══════════════════════════════════════════════════════════════════════
+
+EVOLUCIÓN POKÉMON
+
+La evolución es el proceso por el cual un Pokémon se transforma en una 
+forma más poderosa. Cuando un Pokémon evoluciona, sus estadísticas base 
+aumentan significativamente, puede aprender nuevos movimientos, y a veces 
+cambia de tipo o gana un segundo tipo.
+
+---
+
+MÉTODOS DE EVOLUCIÓN
+
+📈 POR NIVEL
+El método más común. El Pokémon evoluciona al alcanzar un nivel específico.
+
+Ejemplos:
+• Charmander → Charmeleon (nivel 16) → Charizard (nivel 36)
+• Pidgey → Pidgeotto (nivel 18) → Pidgeot (nivel 36)
+• Magikarp → Gyarados (nivel 20)
+
+💎 POR PIEDRA
+Usar una piedra evolutiva específica (Piedra Fuego, Agua, Trueno, etc.).
+
+Ejemplos:
+• Pikachu + Piedra Trueno → Raichu
+• Eevee + Piedra Agua → Vaporeon
+• Vulpix + Piedra Fuego → Ninetales
+• Clefairy + Piedra Lunar → Clefable
+
+💝 POR AMISTAD
+Subir de nivel con alta felicidad/amistad (220+ en una escala de 0-255).
+
+Ejemplos:
+• Eevee → Espeon (día, con alta amistad)
+• Eevee → Umbreon (noche, con alta amistad)
+• Golbat → Crobat (alta amistad)
+• Chansey → Blissey (alta amistad)
+
+Cómo aumentar amistad:
+• Caminar con el Pokémon
+• Subir de nivel
+• Usar vitaminas
+• Darle masajes
+• No dejar que se debilite
+
+🔄 POR INTERCAMBIO
+Intercambiar el Pokémon con otro jugador.
+
+Ejemplos:
+• Kadabra → Alakazam (al intercambiar)
+• Machoke → Machamp (al intercambiar)
+• Graveler → Golem (al intercambiar)
+• Haunter → Gengar (al intercambiar)
+
+Algunos requieren item:
+• Onix + Revestimiento Metálico → Steelix (al intercambiar)
+• Seadra + Escama Dragón → Kingdra (al intercambiar)
+
+📍 POR UBICACIÓN
+Subir de nivel en una ubicación específica (campo magnético, roca 
+musgosa, roca helada, etc.).
+
+Ejemplos:
+• Eevee → Leafeon (cerca de Roca Musgo)
+• Eevee → Glaceon (cerca de Roca Hielo)
+• Magneton → Magnezone (en área con campo magnético)
+• Nosepass → Probopass (en área con campo magnético)
+
+🎯 CONDICIONES ESPECIALES
+Métodos únicos: conocer un movimiento, género específico, hora del 
+día, tener otro Pokémon en el equipo, etc.
+
+Ejemplos:
+• Piloswine → Mamoswine (subir nivel sabiendo "Poder Pasado")
+• Eevee → Sylveon (subir nivel sabiendo movimiento tipo Hada + alta amistad)
+• Tyrogue → Hitmonchan (nivel 20, Ataque < Defensa)
+• Tyrogue → Hitmonlee (nivel 20, Ataque > Defensa)
+• Tyrogue → Hitmontop (nivel 20, Ataque = Defensa)
+• Mantyke → Mantine (subir nivel con Remoraid en el equipo)
+
+---
+
+DATOS IMPORTANTES SOBRE EVOLUCIÓN
+
+✅ AUMENTO DE STATS
+Las estadísticas base aumentan significativamente, haciendo al Pokémon 
+mucho más fuerte. Por ejemplo, Charmander tiene 309 de stats base totales, 
+mientras que Charizard tiene 534.
+
+⏸️ CANCELAR EVOLUCIÓN
+Puedes presionar B durante la animación para cancelarla. Útil si quieres 
+que aprenda movimientos antes que solo están disponibles en su forma 
+pre-evolucionada.
+
+🎓 MOVIMIENTOS EXCLUSIVOS
+Algunos Pokémon aprenden ciertos movimientos solo antes de evolucionar. 
+Por ejemplo, Charmander aprende "Lanzallamas" en el nivel 34, pero 
+Charmeleon lo aprende en el nivel 42. ¡Planifica bien!
+
+🔒 EVOLUCIÓN IRREVERSIBLE
+Una vez que un Pokémon evoluciona, no puede volver a su forma anterior 
+(excepto con mecánicas especiales como Mega Evolución o Forma Dinámica, 
+que son temporales).
+
+🎭 CAMBIO DE TIPO
+Algunos Pokémon cambian de tipo al evolucionar. Por ejemplo:
+• Eevee (Normal) → Vaporeon (Agua)
+• Swablu (Normal/Volador) → Altaria (Dragón/Volador)
+• Azurill (Normal/Hada) → Marill (Agua/Hada)
+
+═══════════════════════════════════════════════════════════════════════
+
+CONSEJOS PARA JUGADORES
+
+1. CONSTRUYE UN EQUIPO BALANCEADO
+   No uses 6 Pokémon del mismo tipo. Diversifica para cubrir más 
+   debilidades y tener ventajas contra diferentes oponentes.
+
+2. CONOCE LAS DEBILIDADES
+   Memoriza las interacciones de tipos más importantes. Saber qué 
+   es efectivo contra qué te dará ventaja en batalla.
+
+3. ENTRENA TUS EVs ESTRATÉGICAMENTE
+   No dejes que tus Pokémon ganen EVs aleatorios. Planifica qué 
+   stats quieres maximizar y entrena contra Pokémon específicos.
+
+4. USA MOVIMIENTOS DE COBERTURA
+   No solo uses movimientos del tipo de tu Pokémon. Incluye movimientos 
+   que cubran sus debilidades.
+
+5. CONSIDERA LA VELOCIDAD
+   En combates competitivos, atacar primero puede ser la diferencia 
+   entre ganar y perder. Invierte en Velocidad cuando sea necesario.
+
+═══════════════════════════════════════════════════════════════════════
+
+Creado para estudiantes apasionados por Pokémon 🎓
+Fuentes: Bulbapedia, Serebii.net, The Cave of Dragonflies
+

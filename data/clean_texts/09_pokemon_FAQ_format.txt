@@ -1,0 +1,140 @@
+# Pokémon Game Mechanics FAQ: Understanding the World of Pokémon Battles
+
+> This document provides a comprehensive guide to the core game mechanics of Pokémon, presented in a Frequently Asked Questions (FAQ) format. It aims to clarify common questions regarding types, stats, evolution, battle systems, and competitive play, offering detailed explanations for both new and experienced players.
+
+## 1. Core Game Mechanics
+
+### Q1.1: What are the fundamental mechanics of Pokémon battles?
+
+Pokémon battles are turn-based, meaning each participant takes turns executing a move. The primary goal is to reduce the opponent's Pokémon's Hit Points (HP) to zero, causing them to faint. During each turn, players can choose to use a move, switch to another Pokémon in their party, or use an item. The battle concludes when all of a player's Pokémon have fainted.
+
+### Q1.2: How does turn order work?
+
+Turn order is primarily determined by the **Speed** stat of the participating Pokémon. The Pokémon with the higher Speed stat will generally act first. However, this can be influenced by **priority moves**, which always execute before standard moves, regardless of Speed. If two Pokémon use moves with the same priority, the one with the higher Speed stat goes first.
+
+### Q1.3: What are Abilities and how do they affect battles?
+
+Abilities are special passive traits that each Pokémon possesses, which can significantly influence the outcome of a battle. They can have a wide range of effects, such as boosting stats, nullifying damage from certain types of moves, or inflicting status conditions on the opponent. For example, the **Levitate** ability grants immunity to Ground-type moves.
+
+### Q1.4: What are Natures and what do they do?
+
+A Pokémon's Nature provides a passive adjustment to its stats. Most Natures increase one stat by 10% while decreasing another by 10%. For instance, an **Adamant** Nature boosts the Attack stat but lowers the Special Attack stat. Some Natures are neutral and do not affect any stats.
+
+## 2. Pokémon Types
+
+### Q2.1: How do Pokémon types work?
+
+Every Pokémon and every move has at least one type. The interaction between these types forms the basis of battle strategy. Type matchups determine the amount of damage a move will inflict. A move can be **super effective** (dealing double damage), **not very effective** (dealing half damage), or have **no effect** (dealing no damage) depending on the type of the attacking move and the type(s) of the defending Pokémon.
+
+### Q2.2: What is the type effectiveness chart?
+
+The type effectiveness chart is a fundamental tool that outlines the interactions between all Pokémon types. It shows which types are strong or weak against others. For example, Water-type moves are super effective against Fire-type Pokémon, while Grass-type moves are not very effective against them.
+
+| Type | Super Effective Against | Not Very Effective Against | Immune To |
+| :--- | :--- | :--- | :--- |
+| Normal | | Rock, Steel | Ghost |
+| Fire | Grass, Ice, Bug, Steel | Fire, Water, Rock, Dragon | |
+| Water | Fire, Ground, Rock | Water, Grass, Dragon | |
+| Grass | Water, Ground, Rock | Fire, Grass, Poison, Flying, Bug, Dragon, Steel | |
+| Electric | Water, Flying | Grass, Electric, Dragon | Ground |
+| Ice | Grass, Ground, Flying, Dragon | Fire, Water, Ice, Steel | |
+| Fighting | Normal, Ice, Rock, Dark, Steel | Poison, Flying, Psychic, Bug, Fairy | Ghost |
+| Poison | Grass, Fairy | Poison, Ground, Rock, Ghost | Steel |
+| Ground | Fire, Electric, Poison, Rock, Steel | Grass, Bug | Flying |
+| Flying | Grass, Fighting, Bug | Electric, Rock, Steel | |
+| Psychic | Fighting, Poison | Psychic, Steel | Dark |
+| Bug | Grass, Psychic, Dark | Fire, Fighting, Poison, Flying, Ghost, Steel, Fairy | |
+| Rock | Fire, Ice, Flying, Bug | Fighting, Ground, Steel | |
+| Ghost | Psychic, Ghost | Dark | Normal |
+| Dragon | Dragon | Steel | Fairy |
+| Dark | Psychic, Ghost | Fighting, Dark, Fairy | |
+| Steel | Ice, Rock, Fairy | Fire, Water, Electric, Steel | |
+| Fairy | Fighting, Dragon, Dark | Fire, Poison, Steel | |
+
+### Q2.3: What is STAB (Same-Type Attack Bonus)?
+
+STAB is a damage bonus applied when a Pokémon uses a move that matches its own type. This bonus increases the move's power by 50% (1.5x). For example, a Fire-type Pokémon using a Fire-type move will benefit from STAB, making the attack significantly stronger.
+
+## 3. Pokémon Stats
+
+### Q3.1: What are the six core stats of a Pokémon?
+
+A Pokémon's performance in battle is governed by six core stats:
+*   **HP (Hit Points):** Determines a Pokémon's health. If it reaches zero, the Pokémon faints.
+*   **Attack:** Affects the damage dealt by physical moves.
+*   **Defense:** Reduces the damage taken from physical moves.
+*   **Special Attack:** Affects the damage dealt by special moves.
+*   **Special Defense:** Reduces the damage taken from special moves.
+*   **Speed:** Determines which Pokémon acts first in a turn.
+
+### Q3.2: How are a Pokémon's stats determined?
+
+A Pokémon's final stats are calculated based on three key components: **Base Stats**, **Individual Values (IVs)**, and **Effort Values (EVs)**.
+
+### Q3.3: What are Base Stats?
+
+Base Stats are the inherent statistical strengths of a Pokémon species. They provide a general indication of whether a Pokémon is naturally fast, bulky, or a powerful attacker. For example, Blissey has a very high base HP stat, while Deoxys-Attack has a very high base Attack stat.
+
+### Q3.4: What are Individual Values (IVs)?
+
+IVs are hidden values, ranging from 0 to 31 for each stat, that are unique to each individual Pokémon. They are akin to a Pokémon's "genes." A higher IV in a particular stat results in a higher maximum potential for that stat.
+
+### Q3.5: What are Effort Values (EVs)?
+
+EVs are points that a Pokémon earns by defeating other Pokémon in battle. These points are then used to further boost its stats. A Pokémon can gain a total of 510 EVs, with a maximum of 252 in a single stat. At level 100, every 4 EVs in a stat translate to one additional stat point.
+
+## 4. Evolution Mechanics
+
+### Q4.1: How do Pokémon evolve?
+
+Evolution is the process by which a Pokémon transforms into a different species. The most common method is leveling up, but many Pokémon evolve through other means, such as:
+*   **Evolutionary Stones:** Using an item like a Fire Stone or Water Stone.
+*   **Trading:** Trading a Pokémon with another player.
+*   **Friendship:** Reaching a high level of friendship with the trainer.
+*   **Specific Items:** Holding a specific item while being traded or leveling up.
+*   **Specific Locations:** Leveling up in a certain in-game area.
+
+### Q4.2: What happens to a Pokémon's stats upon evolution?
+
+When a Pokémon evolves, its Base Stats generally increase, making it stronger. In some cases, its type or ability may also change.
+
+## 5. Battle Mechanics
+
+### Q5.1: How does damage calculation work?
+
+The amount of damage a move inflicts is determined by a complex formula that takes into account the attacker's Attack or Special Attack stat, the defender's Defense or Special Defense stat, the move's power, type effectiveness, and other modifiers like STAB and Critical Hits.
+
+### Q5.2: What are Status Conditions?
+
+Status conditions are persistent ailments that can be inflicted on a Pokémon during battle. The major status conditions are:
+*   **Burn:** Halves the damage of the Pokémon's physical moves and causes damage each turn.
+*   **Freeze:** Prevents the Pokémon from acting.
+*   **Paralysis:** Reduces the Pokémon's Speed and has a chance to prevent it from acting.
+*   **Poison:** Causes damage each turn.
+*   **Sleep:** Prevents the Pokémon from acting for a set number of turns.
+
+### Q5.3: What are stat changes (stat stages)?
+
+Stat stages are temporary modifiers that can raise or lower a Pokémon's stats during battle. Moves like **Swords Dance** can raise the user's Attack stat, while moves like **Growl** can lower the opponent's Attack stat. These changes are reset when the Pokémon is switched out.
+
+### Q5.4: What are Critical Hits?
+
+A critical hit is a random occurrence that causes a move to deal 1.5 times the normal damage. It also ignores any negative stat changes on the attacker and any positive stat changes on the defender.
+
+## 6. Competitive Play Basics
+
+### Q6.1: What is competitive Pokémon play?
+
+Competitive Pokémon play involves battling against other human players, typically following a specific set of rules and formats. It emphasizes strategy, team building, and prediction.
+
+### Q6.2: What are common competitive formats?
+
+Common formats include **Singles**, where each player uses one Pokémon at a time, and **Doubles**, where each player uses two Pokémon at a time. The official tournament format, known as the **Video Game Championships (VGC)**, is a Doubles format with specific rules that change annually.
+
+### Q6.3: What is teambuilding?
+
+Teambuilding is the process of selecting a team of six Pokémon to use in battle. A well-balanced team should have good type synergy, covering each other's weaknesses, and a mix of offensive and defensive Pokémon to handle a variety of opponent strategies.
+
+## Conclusion
+
+Understanding these core game mechanics is crucial for mastering Pokémon battles, whether you're playing through the story or engaging in competitive play. By grasping the intricacies of types, stats, evolution, and battle dynamics, trainers can develop effective strategies and build formidable teams. This FAQ serves as a foundational resource for navigating the rich and complex world of Pokémon.

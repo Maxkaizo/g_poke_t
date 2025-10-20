@@ -1,0 +1,119 @@
+A Comprehensive Guide to Pokémon Competitive Mechanics and Team Roles
+
+This document provides a comprehensive overview of the fundamental mechanics of Pokémon battles, with a special focus on their application in the competitive scene. It delves into the core concepts of team roles, Pokémon types, stats, evolution, and various battle mechanics that are crucial for building a successful competitive team. The information presented here is synthesized from various expert sources and is intended to provide a solid foundation for both new and experienced players looking to improve their competitive Pokémon skills.
+
+## I. Competitive Roles
+
+In the intricate world of competitive Pokémon, each team member is assigned a specific role, crucial for establishing a cohesive and effective battle strategy. Understanding these roles is paramount for strategic team building and in-battle decision-making. The primary roles include Sweepers, Tanks, Walls, Support, and Pivots.
+
+### A. Sweepers
+
+**Sweepers** are the primary damage dealers of a team, designed to eliminate opposing Pokémon rapidly. They are typically characterized by high offensive stats (Attack or Special Attack) and often high Speed. Sweepers aim to "sweep" through the opponent's team once their checks and counters have been removed or weakened [1].
+
+Sweepers are further categorized based on their specific strategies:
+
+*   **Setup Sweepers** enhance their offensive capabilities during battle by utilizing stat-boosting moves such as Swords Dance (raises Attack), Nasty Plot (raises Special Attack), or Dragon Dance (raises Attack and Speed). A prime example is **Volcarona**, which can become a formidable threat after a single Quiver Dance, significantly boosting its Special Attack, Special Defense, and Speed, allowing it to sweep through weakened teams [1].
+*   **Revenge Killers** are swift Pokémon strategically introduced into battle after a teammate has fainted, with the explicit purpose of eliminating an opposing Pokémon that has either taken prior damage or is particularly vulnerable. These Pokémon typically possess high Speed and potent offensive attacks, ensuring they act first and deliver a decisive blow. **Gengar**, renowned for its high Special Attack and Speed, serves as an excellent revenge killer, capable of quickly dispatching weakened foes and maintaining offensive pressure [1].
+
+### B. Tanks
+
+**Tanks** are Pokémon built to endure significant damage, possessing high HP and balanced defensive stats. Their role is to absorb powerful attacks, allowing other, more frail Pokémon on the team to avoid direct hits. Tanks contribute to the team's longevity and can often wear down opponents through passive damage or strategic attacks over several turns.
+
+### C. Walls
+
+**Walls** specialize in negating damage from specific offensive threats. Unlike general tanks, walls typically excel in either physical or special defense, allowing them to completely shut down attackers of a particular category [1].
+
+Walls are typically specialized:
+
+*   **Special Walls** possess exceptionally high Special Defense and HP, rendering them highly resilient against special attacks such as Flamethrower or Psychic. **Blissey** stands as a quintessential special wall, capable of absorbing numerous special hits due to its immense HP and Special Defense, thereby protecting more vulnerable teammates [1].
+*   **Physical Walls** are distinguished by their high Defense and HP, enabling them to effectively withstand physical attacks such as Close Combat or Earthquake. **Dondozo** serves as a prime example of a physical wall, proficiently soaking up physical damage and stalling out physical attackers, thereby disrupting the opponent's offensive momentum [1].
+
+### D. Support
+
+**Support** Pokémon are integral to team cohesion, focusing on enhancing their allies and hindering opponents rather than directly dealing damage. Their utility comes from moves that inflict status conditions (e.g., Toxic, Thunder Wave), set up entry hazards (e.g., Stealth Rock, Spikes), or provide healing and stat boosts to teammates.
+
+### E. Pivots
+
+**Pivots** are crucial for maintaining momentum and safely bringing in other team members. They typically use moves like U-turn or Volt Switch, which allow them to attack and then switch out to another Pokémon. This strategic maneuver helps control the flow of battle and ensures that the right Pokémon is on the field at the opportune moment [1].
+
+Pivots can be categorized by their Speed:
+
+*   **Slow Pivots** possess lower Speed stats, which allows them to absorb an incoming attack and then execute their pivoting move (e.g., U-turn or Volt Switch) after the opponent has already made their move. This ensures that the incoming teammate switches in safely, often without taking damage. **Slowking** and **Slowbro** are classic examples of bulky slow pivots, adept at absorbing damage and facilitating safe switches [1].
+*   **Fast Pivots** are characterized by their high Speed, enabling them to attack and then switch out before the opponent can react, dealing chip damage and maintaining offensive pressure. **Cinderace** and **Dragapult** are prominent examples of fast pivots, known for their ability to control momentum and keep opponents on their toes [1].
+
+## II. Core Game Mechanics
+
+Beyond understanding roles, a deep comprehension of Pokémon's core game mechanics is essential for competitive success. These foundational elements dictate a Pokémon's inherent strengths, weaknesses, and potential in battle.
+
+### A. Types
+
+Every Pokémon and every move in the game is assigned one or two elemental **types**. These types are fundamental to battle, as they determine the effectiveness of attacks and a Pokémon's resistances and weaknesses. There are currently 19 distinct types, each with a unique set of interactions [2].
+
+Attacks can be categorized as **super-effective**, **not very effective**, or having **no effect** against certain Pokémon types. A super-effective attack deals double the normal damage, while a not very effective attack deals half the normal damage. Attacks with no effect deal zero damage [2].
+
+Furthermore, a **Same Type Attack Bonus (STAB)** is applied when a Pokémon uses a move that matches one of its own types. This bonus increases the move's power by 50% (1.5 times normal damage). For instance, a Fire-type Pokémon using a Fire-type move will receive STAB. If this STAB-boosted Fire-type move is then used against a Grass-type Pokémon (which is weak to Fire), the total damage output is significantly amplified [2].
+
+Understanding the comprehensive type chart, which details the offensive and defensive interactions between all 19 types, is critical for predicting damage and making strategic switches during battle. The chart helps players identify which attacks will be most effective and which Pokémon can best resist incoming damage [2].
+
+### B. Stats
+
+Each Pokémon possesses six core **stats** that dictate its performance and potential in battle. These stats are fundamental to a Pokémon's role and effectiveness within a team [3].
+
+The six core stats are:
+
+*   **HP (Hit Points):** This stat represents a Pokémon's overall vitality and how much damage it can sustain before fainting. A higher HP stat allows a Pokémon to endure more hits in battle [3].
+*   **Attack:** This stat dictates the power of a Pokémon's physical moves. Pokémon with high Attack excel at using moves like Earthquake or Close Combat to deal significant damage [3].
+*   **Defense:** This stat determines a Pokémon's resistance to physical attacks. A higher Defense stat reduces the damage taken from physical moves, making the Pokémon more resilient against physical attackers [3].
+*   **Special Attack:** This stat governs the power of a Pokémon's special moves. Pokémon with high Special Attack are adept at using moves like Flamethrower or Psychic to inflict damage [3].
+*   **Special Defense:** This stat reduces the damage taken from special attacks. A higher Special Defense stat makes a Pokémon more durable against special moves, crucial for countering special attackers [3].
+*   **Speed:** This stat is critical for determining turn order in battle. The Pokémon with the higher Speed stat generally attacks first, which can be a decisive advantage in competitive play [3].
+
+These base stats are inherent to each Pokémon species, but individual Pokémon can exhibit variations due to several crucial factors:
+
+*   **Individual Values (IVs):** Often referred to as a Pokémon's "genes," these are hidden values ranging from 0 to 31 for each stat. IVs are determined when a Pokémon is generated and act as genetic predispositions, causing Pokémon of the same species to have slightly different stats even at the same level and with the same Nature [3].
+*   **Effort Values (EVs):** These are points gained through battling specific Pokémon or using certain items (e.g., vitamins). A Pokémon can gain up to 252 EVs in a single stat, with a total cap of 510 across all stats. EVs allow trainers to customize a Pokémon's stat distribution, significantly enhancing its strengths or mitigating its weaknesses to fit a particular competitive role [3].
+*   **Nature:** Each Pokémon possesses a **Nature**, which typically boosts one stat by 10% and lowers another by 10%. Some Natures have no effect on stats. Natures are a critical factor in optimizing a Pokémon's stat spread, ensuring it aligns perfectly with its intended role and strategy in competitive battles [3].
+
+To summarize the impact of these factors on a Pokémon's stats:
+
+| Factor | Description | Competitive Impact |
+|---|---|---|
+| **Base Stats** | Intrinsic values for each species | Determines inherent strengths and weaknesses |
+| **Individual Values (IVs)** | Hidden genetic values (0-31 per stat) | Fine-tunes individual Pokémon's stats within species |
+| **Effort Values (EVs)** | Trainable points (max 252 per stat, 510 total) | Customizes stat distribution for specific roles |
+| **Nature** | +10% to one stat, -10% to another | Optimizes stat spread for role effectiveness |
+
+### C. Evolution
+
+**Evolution** is a transformative process where a Pokémon changes into a new, often more powerful, species. This process typically involves a significant increase in stats and can alter a Pokémon's type or ability. Evolution is a cornerstone mechanic for developing a Pokémon's potential [4].
+
+The numerous methods by which Pokémon can evolve, each with specific triggers, are crucial for developing a Pokémon's full potential [4]:
+
+*   **Leveling Up:** This is the most prevalent method, where a Pokémon evolves upon attaining a predetermined experience level. Some evolutions triggered by leveling up may also necessitate additional conditions, such as the Pokémon knowing a specific move, possessing a high friendship level, or being in a particular in-game location or during a specific time of day [4].
+*   **Evolution Stones:** Certain elemental items, such as the Fire Stone or Water Stone, can be utilized on compatible Pokémon to initiate an immediate evolution. These stones are consumed upon use [4].
+*   **Trading:** A unique method where some Pokémon evolve when they are traded between different players. In some instances, this process might require the Pokémon to be holding a specific item during the trade for the evolution to occur [4].
+*   **Friendship:** A Pokémon that has cultivated a high friendship level with its trainer will evolve upon gaining a level. This method emphasizes the bond between trainer and Pokémon [4].
+*   **Special Conditions:** Beyond the standard methods, some Pokémon evolve under highly specific and unique circumstances. These can include performing particular actions in battle, traveling a certain distance with the Pokémon outside its Poké Ball, or even interacting with the game system in an unusual way, such as holding it upside down during a level up [4].
+
+### D. Battle Mechanics
+
+Beyond the foundational elements of types, stats, and evolution, a variety of other battle mechanics contribute to the strategic depth of competitive Pokémon. Mastering these elements is crucial for anticipating opponent moves and executing effective strategies.
+
+The strategic landscape of competitive Pokémon is further shaped by a variety of additional battle mechanics, which demand careful consideration for anticipating opponent moves and executing effective strategies:
+
+*   **Abilities:** Each Pokémon species possesses a unique **Ability**, a passive skill that confers various effects during battle. These effects can range from stat boosts and damage negation to altering weather conditions or affecting move priority. Abilities are pivotal in defining a Pokémon's viability and role within a team, often serving as a cornerstone of competitive strategies [5].
+*   **Items:** Pokémon are permitted to hold one **item** each, which can bestow a diverse array of benefits. These benefits include significant stat enhancements (e.g., Choice Scarf for Speed, Life Orb for increased damage), health recovery (e.g., Leftovers for passive healing), or specific damage reduction (e.g., Assault Vest for Special Defense). The judicious selection of held items is crucial for optimizing a Pokémon's performance in its designated role [5].
+*   **Entry Hazards:** Certain moves, such as Stealth Rock, Spikes, and Toxic Spikes, deploy **entry hazards** on the opponent's side of the battlefield. When an opposing Pokémon switches into play, it incurs damage or is afflicted with a status condition, leading to a gradual attrition of the opposing team's health and momentum. Effective use of entry hazards can be instrumental in wearing down opponents and facilitating sweeps [5].
+*   **Status Conditions:** These are non-damaging effects that can profoundly impede a Pokémon's combat effectiveness. Common **status conditions** include Poison (which causes gradual HP loss), Paralysis (reducing Speed and potentially causing a Pokémon to miss a turn), Burn (leading to gradual HP loss and a reduction in Attack for physical attackers), Sleep (rendering a Pokémon unable to act for several turns), and Freeze (preventing action until the Pokémon thaws). Strategic application or prevention of these conditions can turn the tide of a battle [5].
+
+### References
+
+[1] NnaDaWinna. (2025, June 18). *Pokemon Roles Explained: Sweepers, Walls, Pivots, and Leads*. Pokestrat. Retrieved from [https://pokestratbuilder.com/blog/roles-explained](https://pokestratbuilder.com/blog/roles-explained)
+
+[2] Pokémon Database. *Pokémon type chart: strengths and weaknesses*. Retrieved from [https://pokemondb.net/type](https://pokemondb.net/type)
+
+[3] Bulbapedia. *Stat*. Retrieved from [https://bulbapedia.bulbagarden.net/wiki/Stat](https://bulbapedia.bulbagarden.net/wiki/Stat)
+
+[4] Bulbapedia. *Methods of Evolution*. Retrieved from [https://bulbapedia.bulbagarden.net/wiki/Methods_of_Evolution](https://bulbapedia.bulbagarden.net/wiki/Methods_of_Evolution)
+
+[5] Smogon. *Getting Started with Competitive Battling*. Retrieved from [https://www.smogon.com/articles/getting-started](https://www.smogon.com/articles/getting-started)

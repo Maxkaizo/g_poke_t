@@ -1,0 +1,177 @@
+# Pokémon Game Mechanics: A Comprehensive Glossary
+
+## Introduction
+
+Pokémon, a globally renowned media franchise, centers around fictional creatures called Pokémon, which humans, known as Pokémon Trainers, catch, train, and battle. The core of the franchise lies in its video games, which feature intricate mechanics governing battles, character progression, and the interaction between different Pokémon. This document serves as a comprehensive glossary detailing the fundamental game mechanics that underpin the Pokémon universe, from elemental types and character statistics to complex battle dynamics and environmental effects.
+
+## 1. Pokémon Types
+
+Each Pokémon is assigned one or two elemental **types**, which dictate its strengths, weaknesses, and immunities in battle. These types form a complex rock-paper-scissors system that is central to strategic gameplay. For instance, a Fire-type move is super effective against Grass-type Pokémon but not very effective against Water-type Pokémon. Understanding the type chart is crucial for effective team building and battle strategy.
+
+### Type Effectiveness Chart
+
+| Attacking Type | Super Effective Against (2x Damage) | Not Very Effective Against (0.5x Damage) | No Effect On (0x Damage) |
+|---|---|---|---|
+| Normal | - | Rock, Steel | Ghost |
+| Fire | Grass, Ice, Bug, Steel | Fire, Water, Rock, Dragon | - |
+| Water | Fire, Ground, Rock | Water, Grass, Dragon | - |
+| Electric | Water, Flying | Electric, Grass, Dragon | Ground |
+| Grass | Water, Ground, Rock | Fire, Grass, Poison, Flying, Bug, Dragon, Steel | - |
+| Ice | Grass, Ground, Flying, Dragon | Fire, Water, Ice, Steel | - |
+| Fighting | Normal, Ice, Rock, Dark, Steel | Poison, Flying, Psychic, Bug, Fairy | Ghost |
+| Poison | Grass, Fairy | Poison, Ground, Rock, Ghost | Steel |
+| Ground | Fire, Electric, Poison, Rock, Steel | Grass, Bug, Flying | - |
+| Flying | Grass, Fighting, Bug | Electric, Rock, Steel | - |
+| Psychic | Fighting, Poison | Psychic, Steel | Dark |
+| Bug | Grass, Psychic, Dark | Fire, Fighting, Poison, Flying, Ghost, Steel, Fairy | - |
+| Rock | Fire, Ice, Flying, Bug | Fighting, Ground, Steel | - |
+| Ghost | Psychic, Ghost | Dark | Normal |
+| Dragon | Dragon | Steel | Fairy |
+| Steel | Ice, Rock, Fairy | Fire, Water, Electric, Steel | - |
+| Dark | Psychic, Ghost | Fighting, Dark, Fairy | - |
+| Fairy | Fighting, Dragon, Dark | Fire, Poison, Steel | - |
+
+The information presented in this chart is a synthesis of data from various authoritative sources on Pokémon game mechanics, including [pokemondb.net/type](https://pokemondb.net/type) and [Serebii.net - Type Chart](https://www.serebii.net/pokedex-sm/type.shtml) [1].
+
+Furthermore, certain abilities and moves, such as Protean or Color Change, can dynamically alter a Pokémon's type during battle, introducing an additional layer of strategic complexity [2].
+
+## 2. Pokémon Stats
+
+Every Pokémon possesses a set of six core **stats** that determine its effectiveness in battle: Hit Points (HP), Attack, Defense, Special Attack, Special Defense, and Speed. These stats are influenced by a combination of factors, including the Pokémon's species, individual values (IVs), effort values (EVs), and Nature.
+
+### Core Stats Explained
+
+These core stats include **Hit Points (HP)**, which determines how much damage a Pokémon can withstand before fainting; **Attack**, governing the power of physical moves; **Defense**, reducing damage from physical attacks; **Special Attack**, dictating the power of special moves; **Special Defense**, mitigating damage from special attacks; and **Speed**, which primarily determines turn order when move priorities are equal.
+
+### Factors Influencing Stats
+
+Several factors contribute to a Pokémon's final stats. **Base Stats** are inherent values specific to each Pokémon species, defining its natural strengths. **Individual Values (IVs)** are hidden numbers (ranging from 0 to 31) randomly assigned to each stat upon a Pokémon's generation, with higher IVs leading to superior performance. **Effort Values (EVs)** are points earned through battle or item usage, allowing trainers to strategically enhance specific stats up to a defined maximum. Finally, each Pokémon possesses a **Nature**, which typically boosts one stat by 10% while lowering another by 10%, though some Natures have no statistical effect. The interplay of these elements, combined with a specific calculation formula, is crucial for optimizing a Pokémon's competitive viability.
+
+Stats are calculated using a specific formula that combines base stats, IVs, EVs, and Nature. Understanding this formula is vital for competitive players to optimize their Pokémon's performance.
+
+*Information gathered from [Bulbapedia - Stat](https://bulbapedia.bulbagarden.net/wiki/Stat).* [3]
+
+## 3. Pokémon Evolution
+
+**Evolution** is a fundamental process in the Pokémon world where a Pokémon transforms into a more powerful species, often gaining improved stats, new types, or different Abilities. This transformation can occur through various methods.
+
+### Methods of Evolution
+
+Evolution can occur through various methods. The most common is **Leveling Up**, where a Pokémon transforms upon reaching a specific experience threshold; some evolutions also require additional conditions such as high friendship, knowing a particular move, or being in a specific location. Other methods include exposure to **Evolution Stones** (e.g., Fire Stone, Water Stone), **Trading** between players (sometimes with a specific held item), achieving high **Friendship/Affection** levels, or fulfilling **Specific Conditions** like time of day or unique actions.
+
+### Temporary Transformations
+
+Beyond permanent evolution, the Pokémon world features several temporary battle-specific transformations. **Mega Evolution**, introduced in Generation VI, is a temporary power-up that significantly boosts a Pokémon's stats and can alter its type or Ability for the duration of a single battle, requiring a specific Mega Stone and a Key Stone from the Trainer [4]. Also from Generation VI, **Primal Reversion** is exclusive to Kyogre and Groudon, restoring them to their ancient, more powerful forms when they hold their respective colored orbs and enter battle [5]. More recently, **Dynamax** and **Gigantamax**, introduced in Generation VIII, temporarily increase a Pokémon's size and HP for three turns. Gigantamax is a unique variant that also changes a Pokémon's appearance and grants access to powerful G-Max Moves [6].
+
+*Information gathered from [Bulbapedia - Methods of Evolution](https://bulbapedia.bulbagarden.net/wiki/Methods_of_Evolution), [Bulbapedia - Mega Evolution](https://bulbapedia.bulbagarden.net/wiki/Mega_Evolution), [Bulbapedia - Primal Reversion](https://bulbapedia.bulbagarden.net/wiki/Primal_Reversion), and [Bulbapedia - Dynamax](https://bulbapedia.bulbagarden.net/wiki/Dynamax).* [4], [5], [6]
+
+## 4. Battle Mechanics
+
+Pokémon battles are turn-based encounters governed by a complex set of rules, including turn order, moves, Abilities, items, status conditions, and environmental effects.
+
+### 4.1. Turn Order and Priority
+
+In Pokémon battles, the turn order is primarily determined by **move priority** and the Pokémon's **Speed** stat [7].
+
+The turn order in Pokémon battles is primarily governed by two factors: **Move Priority** and the **Speed Stat**. Each move possesses a hidden priority value, with higher priority moves executing before lower priority ones, irrespective of a Pokémon's Speed. Most moves have a priority of 0, while positive priority moves (e.g., Quick Attack) go first, and negative priority moves (e.g., Trick Room) execute last. If moves share the same priority, the Pokémon with the higher Speed stat acts first; however, various in-battle effects, such as stat changes, Abilities, or held items, can alter a Pokémon's effective Speed. Notably, the move **Trick Room** reverses the Speed-based order for five turns, allowing slower Pokémon to move before faster ones within the same priority bracket.
+
+*Information gathered from [Bulbapedia - Priority](https://bulbapedia.bulbagarden.net/wiki/Priority).* [7]
+
+### 4.2. Moves
+
+**Moves** are the actions Pokémon use in battle. Each Pokémon has a learnset of moves it can acquire, with a maximum of four moves known at a time [8].
+
+#### Characteristics of Moves
+
+Moves are characterized by several key attributes. They are broadly categorized as **Physical** (damage based on Attack and Defense stats), **Special** (damage based on Special Attack and Special Defense stats), or **Status** (non-damaging effects like stat changes or status conditions). Each move also possesses a specific **Type**, which determines its effectiveness against the target and whether it benefits from a **Same-Type Attack Bonus (STAB)**, a 50% power boost if the move's type matches one of the user's types. Damaging moves have a **Power** value indicating their base strength and an **Accuracy** rating, representing the probability of hitting the target, influenced by accuracy and evasion stats. **PP (Power Points)** limit the number of times a move can be used, requiring restoration once depleted. Additionally, moves have a chance to land **Critical Hits**, dealing increased damage (typically 1.5x in recent generations) and bypassing certain defensive stat modifications. Many moves also feature **Secondary Effects**, such as inflicting status conditions, altering stats, or causing recoil damage.
+
+*Information gathered from [Bulbapedia - Move](https://bulbapedia.bulbagarden.net/wiki/Move).* [8]
+
+### 4.3. Abilities
+
+**Abilities** are passive effects introduced in Generation III that provide various advantages or disadvantages in battle or the overworld. Each Pokémon typically has one Ability, though some species have multiple potential Abilities, including rare **Hidden Abilities** [9].
+
+#### Key Aspects of Abilities
+
+Abilities are characterized by their **Passive Activation**, automatically triggering under specific conditions such as entering battle, taking damage, or during certain weather. They have a significant **Strategic Impact**, influencing battle outcomes by boosting stats (e.g., Speed Boost), changing types (e.g., Protean), preventing status conditions, or altering move effects. Some species possess **Hidden Abilities**, which are rarer and often more powerful, typically acquired through special means. While generally fixed, Abilities can undergo **Dynamic Changes**, being temporarily altered by certain moves or transformations (e.g., Mega Evolution) or permanently modified using items like the Ability Capsule or Ability Patch.
+
+*Information gathered from [Bulbapedia - Ability](https://bulbapedia.bulbagarden.net/wiki/Ability).* [9]
+
+### 4.4. Items
+
+**Items** are objects that players can obtain and use to aid their Pokémon. They are categorized based on their function and usage [10].
+
+#### Types of Items
+
+Items in Pokémon can be broadly categorized into three main types. **Held Items** are equipped by a Pokémon and provide passive effects or activate under specific battle conditions, such as Leftovers for HP recovery, Choice Scarf for Speed boosts, or various Berries for single-use effects. Notably, since Generation VIII, single-use held items are typically not consumed permanently after battle in the main storyline. **Consumable Items** are used by the player or a Pokémon and are expended after use. This category includes **Medicine** (e.g., Potions for HP, Antidotes for status conditions, Revives for fainted Pokémon, Ethers for PP), **Vitamins** (e.g., HP Up, Protein) which permanently increase a Pokémon's Effort Values (EVs), and **Technical Machines (TMs) & Hidden Machines (HMs)**, which teach Pokémon new moves (TMs are reusable from Generation V onwards, while HMs, present in older generations, taught moves usable both in and out of battle). Lastly, **Key Items** are unique, non-disposable objects crucial for story progression, unlocking new areas, or enabling specific game features (e.g., Bicycle, Fishing Rod, Mega Ring).
+
+*Information gathered from [Bulbapedia - Item](https://bulbapedia.bulbagarden.net/wiki/Item).* [10]
+
+### 4.5. Status Conditions
+
+**Status conditions** are ailments that negatively affect a Pokémon's ability to battle. They are divided into non-volatile (major) and volatile (minor) categories [11].
+
+#### Non-Volatile Status Conditions (Major Statuses)
+
+These persist even if the Pokémon is switched out and typically last until cured. A Pokémon can only have one major status condition at a time.
+
+These major statuses include **Burn (BRN)**, which inflicts damage each turn and halves physical move damage (Fire-type Pokémon are immune); **Freeze (FRZ)**, preventing action and potentially thawing each turn (Ice-type Pokémon are immune, and Fire-type moves can thaw); **Paralysis (PAR)**, reducing Speed by 50% and causing a 25% chance of being unable to move (Electric-type Pokémon are immune); **Poison (PSN)**, which inflicts damage each turn (Regular Poison deals fixed damage, while Badly Poisoned from Toxic deals increasing damage, with Poison-type and Steel-type Pokémon being immune); and **Sleep (SLP)**, preventing action for a few turns (Electric Terrain prevents sleep).
+
+#### Volatile Status Conditions (Minor Statuses)
+
+These are temporary, usually wearing off after a few turns or upon switching out. A Pokémon can have multiple minor status conditions.
+
+Minor statuses include **Confusion**, which gives a 33% chance of a Pokémon hitting itself instead of attacking and wears off after 1-4 turns or switching out; **Infatuation**, causing a 50% chance of being unable to attack if attracted to an opposite-gender Pokémon, wearing off upon switching out; **Leech Seed**, which drains HP from the seeded Pokémon each turn and restores it to the user (Grass-type Pokémon are immune); and **Flinch**, which prevents a Pokémon from acting for the current turn.
+
+*Information gathered from [Bulbapedia - Status condition](https://bulbapedia.bulbagarden.net/wiki/Status_condition).* [11]
+
+### 4.6. Weather Effects
+
+**Weather** conditions are environmental effects that alter the battlefield, impacting Pokémon, moves, and Abilities. Only one weather condition can be active at a time, initiated by moves or Abilities [12].
+
+#### Common Weather Conditions
+
+Common weather conditions include **Harsh Sunlight**, which boosts Fire-type moves, weakens Water-type moves, prevents Freeze, and activates Abilities like Chlorophyll. **Rain** boosts Water-type moves, weakens Fire-type moves, ensures Thunder and Hurricane never miss, and activates Abilities like Swift Swim. A **Sandstorm** damages non-Rock, Ground, or Steel-type Pokémon, boosts Rock-type Special Defense, and activates Abilities such as Sand Rush. Finally, **Hail** (replaced by **Snow** in Generation IX) damages non-Ice types, boosts Ice-type Defense (Snow), and ensures Blizzard never misses, while activating Abilities like Slush Rush.
+
+*Information gathered from [Bulbapedia - Weather](https://bulbapedia.bulbagarden.net/wiki/Weather).* [12]
+
+### 4.7. Terrain Effects
+
+**Terrain** effects modify the ground of the battlefield, affecting grounded Pokémon. Introduced in Generation VI, only one terrain can be active at a time, lasting for 5 (or 8 with Terrain Extender) turns [13].
+
+#### Common Terrain Conditions
+
+Common terrain conditions include **Electric Terrain**, which boosts Electric-type moves and prevents grounded Pokémon from falling asleep. **Grassy Terrain** boosts Grass-type moves, restores HP to grounded Pokémon each turn, and halves the power of Earthquake, Bulldoze, and Magnitude. **Misty Terrain** halves damage taken by grounded Pokémon from Dragon-type moves and prevents them from being afflicted with non-volatile status conditions and confusion. Lastly, **Psychic Terrain** boosts Psychic-type moves and prevents grounded Pokémon from being hit by priority moves.
+
+*Information gathered from [Bulbapedia - Terrain](https://bulbapedia.bulbagarden.net/wiki/Terrain).* [13]
+
+### 4.8. Entry Hazards
+
+**Entry hazards** are conditions set on a side of the field that inflict negative effects on opposing Pokémon as they switch into battle. They are typically set by status moves [14].
+
+#### Types of Entry Hazards
+
+Entry hazards include **Spikes**, which damage grounded Pokémon upon entry and can be stacked up to three times for increased damage. **Stealth Rock** inflicts damage on entering Pokémon based on Rock-type effectiveness against their types. **Toxic Spikes** poison grounded Pokémon upon entry (badly poisoning them if two layers are present), and Poison-type Pokémon can remove them. **Sticky Web** lowers the Speed of grounded Pokémon upon entry. Additionally, **Sharp Steel** (from G-Max Steelsurge) damages entering Pokémon based on Steel-type effectiveness.
+
+#### Hazard Removal
+
+Hazards can be removed by moves like Rapid Spin, Mortal Spin, Defog, and Tidy Up. Pokémon holding Heavy-Duty Boots are immune to hazard damage.
+
+*Information gathered from [Bulbapedia - List of moves that cause entry hazards](https://bulbapedia.bulbagarden.net/wiki/List_of_moves_that_cause_entry_hazards).* [14]
+
+## References
+
+[1] Pokémon Database. (n.d.). *Type Chart*. Retrieved from [https://pokemondb.net/type](https://pokemondb.net/type)
+[2] Serebii.net. (n.d.). *Type Chart*. Retrieved from [https://www.serebii.net/pokedex-sm/type.shtml](https://www.serebii.net/pokedex-sm/type.shtml)
+[3] Bulbapedia. (n.d.). *Stat*. Retrieved from [https://bulbapedia.bulbagarden.net/wiki/Stat](https://bulbapedia.bulbagarden.net/wiki/Stat)
+[4] Bulbapedia. (n.d.). *Mega Evolution*. Retrieved from [https://bulbapedia.bulbagarden.net/wiki/Mega_Evolution](https://bulbapedia.bulbagarden.net/wiki/Mega_Evolution)
+[5] Bulbapedia. (n.d.). *Primal Reversion*. Retrieved from [https://bulbapedia.bulbagarden.net/wiki/Primal_Reversion](https://bulbapedia.bulbagarden.net/wiki/Primal_Reversion)
+[6] Bulbapedia. (n.d.). *Dynamax*. Retrieved from [https://bulbapedia.bulbagarden.net/wiki/Dynamax](https://bulbapedia.bulbagarden.net/wiki/Dynamax)
+[7] Bulbapedia. (n.d.). *Priority*. Retrieved from [https://bulbapedia.bulbagarden.net/wiki/Priority](https://bulbapedia.bulbagarden.net/wiki/Priority)
+[8] Bulbapedia. (n.d.). *Move*. Retrieved from [https://bulbapedia.bulbagarden.net/wiki/Move](https://bulbapedia.bulbagarden.net/wiki/Move)
+[9] Bulbapedia. (n.d.). *Ability*. Retrieved from [https://bulbapedia.bulbagarden.net/wiki/Ability](https://bulbapedia.bulbagarden.net/wiki/Ability)
+[10] Bulbapedia. (n.d.). *Item*. Retrieved from [https://bulbapedia.bulbagarden.net/wiki/Item](https://bulbapedia.bulbagarden.net/wiki/Item)
+[11] Bulbapedia. (n.d.). *Status condition*. Retrieved from [https://bulbapedia.bulbagarden.net/wiki/Status_condition](https://bulbapedia.bulbagarden.net/wiki/Status_condition)
+[12] Bulbapedia. (n.d.). *Weather*. Retrieved from [https://bulbapedia.bulbagarden.net/wiki/Weather](https://bulbapedia.bulbagarden.net/wiki/Weather)
+[13] Bulbapedia. (n.d.). *Terrain*. Retrieved from [https://bulbapedia.bulbagarden.net/wiki/Terrain](https://bulbapedia.bulbagarden.net/wiki/Terrain)
+[14] Bulbapedia. (n.d.). *List of moves that cause entry hazards*. Retrieved from [https://bulbapedia.bulbagarden.net/wiki/List_of_moves_that_cause_entry_hazards](https://bulbapedia.bulbagarden.net/wiki/List_of_moves_that_cause_entry_hazards)
