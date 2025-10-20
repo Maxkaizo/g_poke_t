@@ -1,65 +1,190 @@
-"""
-app_streamlit.py
-────────────────────────────────────────────
-Stage 1: Streamlit UI for intent routing demo.
-────────────────────────────────────────────
-"""
-
-import json
+# src/app_streamlit.py
+import os
+from datetime import datetime
 import streamlit as st
-from intent_router import IntentRouter
+from qdrant_client import QdrantClient
 
 # ─────────────────────────────────────────────
-# Page configuration
+# Project imports
+# ─────────────────────────────────────────────
+from intent_router import IntentRouter
+from hybrid_search_qdrant import hybrid_rrf_search
+from generate_answer import generate_answer
+# from mongo_query import query_mongo
+# from graph_query import query_neo4j
+
+# ─────────────────────────────────────────────
+# PAGE CONFIG
 # ─────────────────────────────────────────────
 st.set_page_config(
-    page_title="Pokémon RAG Assistant (Intent Router Demo)",
-    page_icon="🧠",
+    page_title="Pokémon RAG Assistant",
+    page_icon="🧬",
     layout="wide"
 )
 
-st.title("Pokémon RAG Assistant — Stage 1 🧭")
-st.caption("Interactive demo of the multi-intent router powered by LLMs")
+# ─────────────────────────────────────────────
+# FIX INPUT FIELD AT THE BOTTOM
+# ─────────────────────────────────────────────
+st.markdown(
+    """
+    <style>
+    /* Keep chat input fixed at bottom */
+    .stChatInput {
+        position: fixed;
+        bottom: 1rem;
+        left: 0;
+        right: 0;
+        background-color: var(--background-color);
+        padding: 0.5rem 1rem;
+        z-index: 100;
+        border-top: 1px solid rgba(250, 250, 250, 0.1);
+    }
+    /* Add bottom padding so messages are not hidden behind the input */
+    .stChatMessageContainer {
+        padding-bottom: 6rem;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 # ─────────────────────────────────────────────
-# Sidebar configuration
+# HEADER
 # ─────────────────────────────────────────────
-st.sidebar.header("⚙️ Configuration")
-model = st.sidebar.selectbox("Model", ["gpt-4o-mini"], index=0)
-temperature = st.sidebar.slider("Temperature", 0.0, 1.0, 0.0, 0.1)
-
-# Initialize router
-router = IntentRouter(model=model, temperature=temperature)
+st.title("🧬 Pokémon RAG Assistant — Multi-Source Retrieval")
+st.caption("LLM-driven intent routing across Qdrant (semantic), MongoDB (factual), and Neo4j (graph).")
 
 # ─────────────────────────────────────────────
-# Main input
+# SESSION STATE INIT
 # ─────────────────────────────────────────────
-query = st.text_area("Ask a question about Pokémon:", height=100, placeholder="e.g., How does Eevee evolve and what type is Vaporeon?")
+if "messages" not in st.session_state:
+    st.session_state["messages"] = []
+if "router_log" not in st.session_state:
+    st.session_state["router_log"] = []
+if "last_query" not in st.session_state:
+    st.session_state["last_query"] = None
 
+# ─────────────────────────────────────────────
+# QDRANT CLIENT
+# ─────────────────────────────────────────────
+QDRANT_URL = os.getenv("QDRANT_URL", "http://localhost:6333")
+QDRANT_API_KEY = os.getenv("QDRANT_API_KEY", "pokedex-key")
+QDRANT_COLLECTION = os.getenv("QDRANT_COLLECTION", "pokedex_hybrid")
 
-if st.button("Analyze Intents 🧠", use_container_width=True):
-    if not query.strip():
-        st.warning("Please enter a question first.")
-    else:
-        with st.spinner("Analyzing..."):
+try:
+    qdrant_client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY)
+except Exception as e:
+    st.error(f"❌ Could not connect to Qdrant: {e}")
+    st.stop()
+
+# ─────────────────────────────────────────────
+# INTENT ROUTER
+# ─────────────────────────────────────────────
+router = IntentRouter()
+
+# ─────────────────────────────────────────────
+# LAYOUT: TABS
+# ─────────────────────────────────────────────
+tab_chat, tab_debug = st.tabs(["💬 Chat", "🧠 Debug"])
+
+# ─────────────────────────────────────────────
+# TAB 1 — REAL CHAT
+# ─────────────────────────────────────────────
+with tab_chat:
+    st.subheader("Chat with the Pokémon Assistant")
+
+    # Show previous conversation
+    for msg in st.session_state["messages"]:
+        with st.chat_message(msg["role"]):
+            st.markdown(msg["content"])
+
+# ─────────────────────────────────────────────
+# CHAT INPUT (fixed at bottom)
+# ─────────────────────────────────────────────
+if user_query := st.chat_input("Ask something about Pokémon..."):
+    # Save user message
+    st.session_state["messages"].append(
+        {"role": "user", "content": user_query, "time": datetime.now().isoformat()}
+    )
+    with tab_chat:
+        with st.chat_message("user"):
+            st.markdown(user_query)
+
+        with st.chat_message("assistant"):
+            placeholder = st.empty()
             try:
-                result = router.extract_intents(query)
-                st.success("✅ Intents extracted successfully!")
+                placeholder.markdown("🧠 **Step 1/4 — Analyzing intents...**")
+                intents = router.extract_intents(user_query)
+                st.session_state["router_log"].append(router.history[-1])
 
-                # Show parsed JSON
-                st.subheader("📘 Parsed Intents")
-                st.json(result, expanded=True)
+                placeholder.markdown("📚 **Step 2/4 — Querying Qdrant (semantic search)...**")
+                semantic_results = hybrid_rrf_search(
+                    client=qdrant_client,
+                    query=user_query,
+                    limit=3
+                )
 
-                # Optional: show log info
-                st.subheader("🧾 Router Log")
-                log_entry = router.history[-1]
-                st.code(json.dumps(log_entry, indent=2, ensure_ascii=False), language="json")
+                placeholder.markdown("📄 **Step 3/4 — Fetching factual & graph data...**")
+                factual_results = []  # query_mongo(intents)
+                graph_results = []    # query_neo4j(intents)
+
+                placeholder.markdown("🤖 **Step 4/4 — Generating final answer...**")
+                final_answer = generate_answer(
+                    user_query,
+                    semantic_results=semantic_results,
+                    factual_docs=factual_results,
+                    graph_relations=graph_results,
+                )
+
+                placeholder.markdown(final_answer)  # replace progress with final answer
+                st.session_state["messages"].append(
+                    {"role": "assistant", "content": final_answer, "time": datetime.now().isoformat()}
+                )
+
+                st.session_state["last_query"] = {
+                    "query": user_query,
+                    "intents": intents,
+                    "semantic": semantic_results,
+                    "factual": factual_results,
+                    "graph": graph_results,
+                    "answer": final_answer,
+                }
 
             except Exception as e:
-                st.error(f"Error: {e}")
+                placeholder.markdown(f"❌ **Error:** {e}")
 
 # ─────────────────────────────────────────────
-# Footer
+# TAB 2 — DEBUG MODE
 # ─────────────────────────────────────────────
-st.markdown("---")
-st.caption("Stage 1 of Pokémon RAG Assistant — Intent detection only (no retrieval yet)")
+with tab_debug:
+    st.subheader("🔍 Debug Details")
+
+    if st.session_state["last_query"]:
+        last = st.session_state["last_query"]
+
+        with st.expander("🧭 Intent Router Output", expanded=False):
+            st.json(last["intents"])
+
+        with st.expander("📚 Semantic Search (Qdrant)", expanded=False):
+            for r in last["semantic"]:
+                payload = getattr(r, "payload", None) or {}
+                snippet = payload.get("text", "")[:250].replace("\n", " ")
+                st.markdown(f"- **{payload.get('document_name', '?')}** — *{payload.get('section_name', '')}*")
+                st.caption(snippet)
+
+        with st.expander("📄 Factual Results (MongoDB)", expanded=False):
+            if last["factual"]:
+                st.json(last["factual"])
+            else:
+                st.info("No factual results returned.")
+
+        with st.expander("🔗 Graph Results (Neo4j)", expanded=False):
+            if last["graph"]:
+                st.json(last["graph"])
+            else:
+                st.info("No graph results returned.")
+
+        with st.expander("🧠 Final Answer", expanded=True):
+            st.write(last["answer"])
+    else:
+        st.info("Run a chat first to see debug information.")

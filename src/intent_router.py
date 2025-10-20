@@ -2,16 +2,14 @@
 intent_router.py
 ────────────────────────────────────────────
 LLM-powered multi-intent router for Pokémon RAG system.
-
-This module uses an LLM (e.g., gpt-4o-mini) to extract multiple intents
-from a user's query, identifying entities, attributes, and confidence levels.
 ────────────────────────────────────────────
 """
 
 import os
+import re
 import json
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 from dotenv import load_dotenv, find_dotenv
 from openai import OpenAI
 
@@ -30,7 +28,7 @@ INTENT_PROMPT = """
 You are an intent extraction assistant for a Pokémon knowledge system.
 
 Your task is to analyze the user's question (which may be written in English or Spanish)
-and extract *all* distinct intents it expresses. 
+and extract *all* distinct intents it expresses.
 
 Each intent must specify:
 - The **intent type**: one of ["semantic", "factual", "relational"].
@@ -101,45 +99,61 @@ class IntentRouter:
 
     def _validate_json(self, text: str) -> dict | None:
         """Validate and parse JSON response safely."""
+        if not text:
+            return None
+
         try:
             return json.loads(text)
         except json.JSONDecodeError:
-            return None
+            # Auto-clean common LLM artifacts
+            cleaned = text.strip()
+
+            # Remove any non-JSON preamble
+            match = re.search(r'({.*})', cleaned, re.DOTALL)
+            if match:
+                cleaned = match.group(1)
+
+            # Replace Python-style None/True/False with JSON equivalents
+            cleaned = (
+                cleaned.replace("None", "null")
+                       .replace("True", "true")
+                       .replace("False", "false")
+            )
+
+            try:
+                return json.loads(cleaned)
+            except Exception:
+                return None
 
     def extract_intents(self, query: str) -> dict:
-        """
-        Extract multiple intents from a user's query.
-        Returns a structured dict, logs results in self.history.
-        """
+        """Extract multiple intents from a user's query."""
         prompt = INTENT_PROMPT.format(question=query)
         start_time = time.time()
-        response_text = None
         parsed = None
+        response_text = None
 
-        # Retry loop for invalid JSON
+        # Retry loop for malformed JSON
         for attempt in range(self.max_retries):
             response_text = self._call_llm(prompt)
             parsed = self._validate_json(response_text)
             if parsed:
-                break  # valid JSON
-            else:
-                # Attempt to fix malformed JSON
-                fix_prompt = f"Fix this to valid JSON only, following the schema:\n\n{response_text}"
-                response_text = self._call_llm(fix_prompt)
-                parsed = self._validate_json(response_text)
-                if parsed:
-                    break
+                break
+            # Try a JSON-only fix pass
+            fix_prompt = f"Return only valid JSON, fixing the following:\n\n{response_text}"
+            response_text = self._call_llm(fix_prompt)
+            parsed = self._validate_json(response_text)
+            if parsed:
+                break
 
         elapsed = round(time.time() - start_time, 3)
         success = parsed is not None
 
-        # Record execution log
         log_entry = {
             "query": query,
             "response_raw": response_text,
             "parsed": parsed,
             "success": success,
-            "timestamp": datetime.utcnow().isoformat(),
+            "timestamp": datetime.now(timezone.utc).isoformat(),
             "elapsed_sec": elapsed,
             "attempts": attempt + 1,
         }
@@ -156,12 +170,7 @@ class IntentRouter:
 # ─────────────────────────────────────────────
 if __name__ == "__main__":
     router = IntentRouter()
-
     query = "How does Eevee evolve and what type is Vaporeon?"
     print(f"🔍 Query: {query}\n")
-
     result = router.extract_intents(query)
     print(json.dumps(result, indent=2, ensure_ascii=False))
-
-    print("\n🧾 Router Log Summary:")
-    print(json.dumps(router.history[-1], indent=2, ensure_ascii=False))
