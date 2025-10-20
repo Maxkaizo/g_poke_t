@@ -71,6 +71,15 @@ Relationships modeled:
 - `smart_chunking.py` → performs **LLM-based semantic chunking & summarization**  
 - `hybrid_index_qdrant.py` → embeds & indexes chunks in **Qdrant**  
 
+
+>    Note: Knowledge Base Versioning
+>
+>    The folder data/clean_texts/ contains the canonical Pokémon Knowledge Base (KB) used for semantic retrieval and LLM grounding.
+>    It is explicitly versioned to ensure reproducibility, since most available resources about Pokémon are fragmented or focused on the TCG (Trading Card Game) rather than game mechanics.
+>    This curated KB was therefore created from scratch through targeted scraping and content normalization to provide consistent, high-quality textual data for the RAG system.
+>
+>    All other data artifacts (embeddings, chunked outputs, and temporary files) remain excluded from version control to keep the repository lightweight and regenerable.
+
 ### 5️⃣ Multi-Source Retrieval  
 - `hybrid_search_qdrant.py` → hybrid semantic search (RRF between dense + BM25)  
 - `mongo_query.py` → factual attribute queries  
