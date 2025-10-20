@@ -127,11 +127,13 @@ NEO4J_PASSWORD=yourpassword
 ### 1️⃣ Set up
 
 ```bash
+docker compose up -d
 make setup
 ```
 or
 
 ```bash
+docker compose up -d
 uv run python src/ingest_pokeapi_dlt_structured.py
 uv run python src/consolidate_pokedex_batches.py
 uv run python src/load_to_mongo.py
