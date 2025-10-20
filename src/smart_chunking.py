@@ -1,5 +1,7 @@
 import os
+import re
 import json
+import uuid
 from dotenv import load_dotenv, find_dotenv
 from openai import OpenAI
 from tqdm import tqdm
@@ -11,7 +13,7 @@ load_dotenv(find_dotenv())
 
 API_KEY = os.getenv("OPENAI_API_KEY")
 if not API_KEY:
-    raise ValueError("❌ Falta la variable OPENAI_API_KEY en tu archivo .env")
+    raise ValueError("❌ Missing OPENAI_API_KEY in .env file")
 
 openai_client = OpenAI(api_key=API_KEY)
 
@@ -34,28 +36,26 @@ Each section should:
 - Retain all relevant details (no summaries).
 - Be clearly separated using '---' between sections.
 
-<DOCUMENT>
-{document}
-</DOCUMENT>
+Use the following format **exactly**:
 
-Return the result using this format:
-
-## Section Name
-
+<## Section Name##>
 Section content...
 
 ---
 
-## Another Section Name
-
-Another section content...
+<## Another Section Name##>
+Section content...
 
 ---
+
+<DOCUMENT>
+{document}
+</DOCUMENT>
 """.strip()
 
 
 def llm(prompt, model="gpt-4o-mini"):
-    """Wrapper para llamada al modelo LLM."""
+    """Wrapper for OpenAI chat completion call."""
     response = openai_client.chat.completions.create(
         model=model,
         messages=[{"role": "user", "content": prompt}],
@@ -65,38 +65,61 @@ def llm(prompt, model="gpt-4o-mini"):
 
 
 def intelligent_chunking(text, prompt_template=PROMPT_TEMPLATE):
-    """Divide un texto en secciones temáticas usando LLM."""
-    prompt = prompt_template.format(document=text[:15000])  # limitar por tokens
+    """Split a text into thematic sections using an LLM."""
+    prompt = prompt_template.format(document=text[:15000])  # avoid overlength
     response = llm(prompt)
-    sections = response.split("---")
-    return [s.strip() for s in sections if s.strip()]
+
+    # Split by delimiter "---"
+    sections = [s.strip() for s in response.split("---") if s.strip()]
+    return sections
+
+
+def parse_section(section_text):
+    """
+    Extract section_name and content from the LLM response chunk.
+    Expected pattern: <## Section Name##> followed by text.
+    """
+    match = re.match(r"<##\s*(.*?)\s*##>\s*(.*)", section_text, re.DOTALL)
+    if match:
+        section_name = match.group(1).strip()
+        content = match.group(2).strip()
+    else:
+        section_name = "Untitled"
+        content = section_text.strip()
+    return section_name, content
 
 
 # ───────────────────────────────
 # MAIN
 # ───────────────────────────────
 if __name__ == "__main__":
-    print("🧠 Iniciando chunking inteligente...")
+    print("🧠 Starting intelligent chunking...")
     input_files = [f for f in os.listdir(INPUT_DIR) if f.endswith(".txt")]
 
-    for file in tqdm(input_files, desc="Procesando documentos"):
+    for file in tqdm(input_files, desc="Processing documents"):
         file_path = os.path.join(INPUT_DIR, file)
 
         with open(file_path, "r", encoding="utf-8") as f:
             text = f.read()
 
-        chunks = intelligent_chunking(text)
+        # Generate sections via LLM
+        sections = intelligent_chunking(text)
 
         output_path = os.path.join(OUTPUT_DIR, file.replace(".txt", ".jsonl"))
-        with open(output_path, "w", encoding="utf-8") as f:
-            for i, chunk in enumerate(chunks, 1):
+        with open(output_path, "w", encoding="utf-8") as f_out:
+            for i, section in enumerate(sections, 1):
+                section_name, content = parse_section(section)
+
                 record = {
-                    "id": f"{file.replace('.txt', '')}_chunk_{i}",
-                    "text": chunk,
-                    "source": file,
+                    "chunk_id": str(uuid.uuid4()),
+                    "document_name": file.replace(".txt", ".md"),
+                    "chunk_index": i,
+                    "section_name": section_name,
+                    "text": content,
                 }
-                f.write(json.dumps(record, ensure_ascii=False) + "\n")
 
-        print(f"✅ {len(chunks)} chunks generados → {output_path}")
+                f_out.write(json.dumps(record, ensure_ascii=False) + "\n")
 
-    print("\n🏁 Chunking finalizado correctamente.")
+        print(f"✅ {len(sections)} chunks generated → {output_path}")
+
+    print("\n🏁 Chunking completed successfully.")

@@ -79,7 +79,7 @@ This project addresses that by designing a **RAG-driven retrieval flow** that me
     "source": "www_dragonflycave_com_mechanics_battling-basics.txt"
   }
 }
-````
+```
 
 ---
 
@@ -96,6 +96,17 @@ Fusion Layer (LLM prompt assembly)
    ↓
 Final Answer (reasoned + contextualized)
 ```
+
+
+### 🔍 Retrieval Strategy
+
+At this stage, the system performs parallel retrieval across all knowledge sources — Neo4j, MongoDB, and Qdrant — instead of relying on an autonomous routing agent.
+
+This design choice prioritizes consistency, speed, and reproducibility over dynamic complexity.
+All sources are queried concurrently, and the results are merged into a unified context before being passed to the LLM.
+
+A future version may include an intent-based retriever router that decides which database to query (graph, vector, or document) based on the user’s question type.
+For now, the parallel approach ensures reliable multi-source grounding without additional inference overhead.
 
 ---
 

@@ -66,9 +66,28 @@ services:
     depends_on:
       - mongo
 
+  # ───────────────────────────────────────────────
+  # 🧮 QDRANT VECTOR DATABASE
+  # ───────────────────────────────────────────────
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: qdrant_pokedex
+    restart: unless-stopped
+    ports:
+      - "6333:6333"   # REST API
+      - "6334:6334"   # gRPC API
+    volumes:
+      - ./data/qdrant/storage:/qdrant/storage
+      - ./data/qdrant/snapshots:/qdrant/snapshots
+    environment:
+      QDRANT__SERVICE__HOST: 0.0.0.0
+      QDRANT__SERVICE__API_KEY: pokedex-key
+      QDRANT__LOG_LEVEL: INFO
+
 # ───────────────────────────────────────────────
 # 🗂️ Volúmenes globales declarados (opcional)
 # ───────────────────────────────────────────────
 volumes:
   mongo_data:
   neo4j_data:
+  qdrant_data:
